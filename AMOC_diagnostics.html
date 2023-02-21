@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Sample Notebook &#8212; Analysis Project Template</title>
+    <title>AMOC Diagnostics Overview &#8212; iPOGS Analysis Project</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Introduction" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -91,7 +90,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <h1 class="site-logo" id="site-title">Analysis Project Template</h1>
+      <h1 class="site-logo" id="site-title">iPOGS Analysis Project</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -103,18 +102,11 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Introduction
+                    iPOGS Project Summary:
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Sample Notebook
-  </a>
- </li>
-</ul>
-
+        
     </div>
 </nav></div>
         <div class="bd-sidebar__bottom">
@@ -172,7 +164,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Notebook_Template.ipynb"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/AMOC_diagnostics.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -215,7 +207,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Notebook_Template.ipynb"
+        <a href="_sources/AMOC_diagnostics.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -275,23 +267,18 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#imports">
-   Imports
+  <a class="reference internal nav-link" href="#to-do">
+   To Do:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-ingest">
-   Data Ingest
+  <a class="reference internal nav-link" href="#work-at-tamu-qiuying-abishek">
+   Work at TAMU (Qiuying/Abishek)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-operation">
-   Data Operation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-visualization">
-   Data Visualization
+  <a class="reference internal nav-link" href="#steve-s-work">
+   Steve’s work:
   </a>
  </li>
 </ul>
@@ -303,7 +290,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Sample Notebook</h1>
+                <h1>AMOC Diagnostics Overview</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -314,23 +301,18 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#imports">
-   Imports
+  <a class="reference internal nav-link" href="#to-do">
+   To Do:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-ingest">
-   Data Ingest
+  <a class="reference internal nav-link" href="#work-at-tamu-qiuying-abishek">
+   Work at TAMU (Qiuying/Abishek)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-operation">
-   Data Operation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-visualization">
-   Data Visualization
+  <a class="reference internal nav-link" href="#steve-s-work">
+   Steve’s work:
   </a>
  </li>
 </ul>
@@ -343,53 +325,65 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="sample-notebook">
-<h1>Sample Notebook<a class="headerlink" href="#sample-notebook" title="Permalink to this headline">#</a></h1>
-<p>Once you copy this repository, feel free to delete this notebook!</p>
-<section id="imports">
-<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import something here</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="amoc-diagnostics-overview">
+<h1>AMOC Diagnostics Overview<a class="headerlink" href="#amoc-diagnostics-overview" title="Permalink to this headline">#</a></h1>
+<p><strong>Goal:</strong> Extracts data from a specific simulation and spatial extent and creates quick AMOC diagnostics. This notebook provides an overview of AMOC-related goals for this repository; use the next two notebooks in this repository for calculation.<br />
+<strong>Date:</strong> February 2023<br />
+<strong>Creator:</strong> Teagan King, February 2023<br />
+<strong>Much of this notebook is based on contributions from:</strong> Abishek Gopal, Qiuying Zhang, Fred Castruccio, Steve Yeager</p>
+<section id="to-do">
+<h2>To Do:<a class="headerlink" href="#to-do" title="Permalink to this headline">#</a></h2>
+<p>[] HR HF-TNST with RCP8.5 m1</p>
+<ul class="simple">
+<li><p>data location: /glade/campaign/collections/cmip/CMIP6/iHESP/BHIST/HR/B.E.13.BHISTC5.ne120_t12.sehires38.003.sunway/ocn/proc/tseries/month_1</p></li>
+</ul>
+<p>[x] HR HF-TNST with RCP8.5 m2</p>
+<ul class="simple">
+<li><p>Qiuying made AMOC here on Grace: /ihesp/archive/BHIST_1920-2100/b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.30.002/tseries/ocn/month_1/* MOCz *</p></li>
+<li><p>[] still need sigma?</p>
+<ul>
+<li><p>data location: /glade/campaign/collections/cmip/CMIP6/iHESP/BHIST/HR/</p></li>
+</ul>
+</li>
+</ul>
+<p>[x] HR HF-TNST with RCP8.5 m3</p>
+<ul class="simple">
+<li><p>Qiuying made AMOC here on Grace: /ihesp/archive/BHIST_1920-2100/b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.31.003/tseries/ocn/month_1/* MOCz *</p></li>
+<li><p>[] still need sigma?</p>
+<ul>
+<li><p>data location: /glade/campaign/collections/cmip/CMIP6/iHESP/BHIST/HR/</p></li>
+</ul>
+</li>
+</ul>
+<p>[] HR HF-TNST with RCP8.5 3-member ensemble</p>
+<ul class="simple">
+<li><p>data location: /glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR</p></li>
+</ul>
+<p>[] HR HF-TNST with RCP4.5</p>
+<ul class="simple">
+<li><p>data location:  /glade/campaign/collections/cmip/CMIP6/iHESP/BRCP45/HR</p></li>
+</ul>
+<p>[] HR HF-TNST with RCP2.6</p>
+<ul class="simple">
+<li><p>data location:  /glade/campaign/collections/cmip/CMIP6/iHESP/BRCP26/HR</p></li>
+</ul>
+<p>[] HR HF-TNST - RCPs ensemble</p>
+<ul class="simple">
+<li><p>data location:  /glade/campaign/collections/cmip/CMIP6/iHESP/BRCP*</p></li>
+</ul>
 </section>
-<section id="data-ingest">
-<h2>Data Ingest<a class="headerlink" href="#data-ingest" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in the data using xarray or some other package</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;some_file.nc&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+<section id="work-at-tamu-qiuying-abishek">
+<h2>Work at TAMU (Qiuying/Abishek)<a class="headerlink" href="#work-at-tamu-qiuying-abishek" title="Permalink to this headline">#</a></h2>
+<p>MOC time series were created by Abishek with this code:
+/ihesp/shared/POP_MOC/submit_pop_moc_0p1deg_B1950.sh &amp; batch_moc_script.sh</p>
 </section>
-<section id="data-operation">
-<h2>Data Operation<a class="headerlink" href="#data-operation" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do some sort of calculation on the data</span>
-<span class="n">some_calc</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">temp</span> <span class="o">*</span> <span class="n">some_equation</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="data-visualization">
-<h2>Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the data</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+<section id="steve-s-work">
+<h2>Steve’s work:<a class="headerlink" href="#steve-s-work" title="Permalink to this headline">#</a></h2>
+<p>Notebooks for processing 0.1deg POP output into AMOC(z) and AMOC(sigma):
+<a class="reference external" href="https://github.com/sgyeager/POP_MOC/blob/main/notebooks/pop_MOCz_0.1deg.ipynb">https://github.com/sgyeager/POP_MOC/blob/main/notebooks/pop_MOCz_0.1deg.ipynb</a>
+<a class="reference external" href="https://github.com/sgyeager/POP_MOC/blob/main/notebooks/pop_MOCsig2_0.1deg.ipynb">https://github.com/sgyeager/POP_MOC/blob/main/notebooks/pop_MOCsig2_0.1deg.ipynb</a></p>
+<p>These will be adapted in the two notebooks included in this repo. They use dask and operate on 12-months of HR output, generating output in a couple minutes. For processing many decades of transient run output, some mods will be
+needed. One option is to use notebooks (modifying the inputs, dask cluster size, etc to crunch timeseries inputs); another option is to convert to .py scripts that can be called from shell scripts. The latter might require figuring out dask-mpi?</p>
 </section>
 </section>
 
@@ -402,16 +396,16 @@ title="Print to PDF"
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "ipogs"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ipogs",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ipogs'</script>
 
               </div>
               
@@ -420,13 +414,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction</p>
-        </div>
-    </a>
 </div>
             </footer>
         </div>
@@ -434,7 +421,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By NCAR ESDS Team<br/>
+    By NCAR iPOGS Team<br/>
   
       &copy; Copyright 2022.<br/>
 </p>
