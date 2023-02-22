@@ -417,6 +417,13 @@ title="Print to PDF"
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="kn">from</span> <span class="nn">MOCutils</span> <span class="kn">import</span> <span class="n">popmoc</span>
+<span class="kn">import</span> <span class="nn">pop_tools</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The autoreload extension is already loaded. To reload it, use:
+  %reload_ext autoreload
 </pre></div>
 </div>
 </div>
@@ -441,6 +448,75 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Close out Dask Cluster and release workers:</span>
 <span class="n">cluster</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-22 16:04:19,763 - distributed.client - ERROR - 
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/comm/core.py&quot;, line 291, in connect
+    comm = await asyncio.wait_for(
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/asyncio/tasks.py&quot;, line 445, in wait_for
+    return fut.result()
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/comm/tcp.py&quot;, line 461, in connect
+    convert_stream_closed_error(self, e)
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/comm/tcp.py&quot;, line 142, in convert_stream_closed_error
+    raise CommClosedError(f&quot;in {obj}: {exc.__class__.__name__}: {exc}&quot;) from exc
+distributed.comm.core.CommClosedError: in &lt;distributed.comm.tcp.TCPConnector object at 0x2ac5db2d42b0&gt;: ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/utils.py&quot;, line 778, in wrapper
+    return await func(*args, **kwargs)
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/client.py&quot;, line 1211, in _reconnect
+    await self._ensure_connected(timeout=timeout)
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/client.py&quot;, line 1241, in _ensure_connected
+    comm = await connect(
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/comm/core.py&quot;, line 315, in connect
+    await asyncio.sleep(backoff)
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/asyncio/tasks.py&quot;, line 605, in sleep
+    return await future
+asyncio.exceptions.CancelledError
+
+Traceback (most recent call last):
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/comm/tcp.py&quot;, line 223, in read
+    frames_nbytes = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/client.py&quot;, line 1392, in _handle_report
+    msgs = await self.scheduler_comm.comm.read()
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/comm/tcp.py&quot;, line 239, in read
+    convert_stream_closed_error(self, e)
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/comm/tcp.py&quot;, line 144, in convert_stream_closed_error
+    raise CommClosedError(f&quot;in {obj}: {exc}&quot;) from exc
+distributed.comm.core.CommClosedError: in &lt;TCP (closed) Client-&gt;Scheduler local=tcp://10.12.206.48:41326 remote=tcp://10.12.206.48:42552&gt;: Stream is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/utils.py&quot;, line 778, in wrapper
+    return await func(*args, **kwargs)
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/client.py&quot;, line 1400, in _handle_report
+    await self._reconnect()
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/utils.py&quot;, line 778, in wrapper
+    return await func(*args, **kwargs)
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/client.py&quot;, line 1211, in _reconnect
+    await self._ensure_connected(timeout=timeout)
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/client.py&quot;, line 1241, in _ensure_connected
+    comm = await connect(
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/comm/core.py&quot;, line 315, in connect
+    await asyncio.sleep(backoff)
+  File &quot;/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/asyncio/tasks.py&quot;, line 605, in sleep
+    return await future
+asyncio.exceptions.CancelledError
 </pre></div>
 </div>
 </div>
@@ -476,14 +552,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/dask_jobqueue/pbs.py:82: FutureWarning: project has been renamed to account as this kwarg was used wit -A option. You are still using it (please also check config files). If you did not set account yet, project will be respected for now, but it will be removed in a future release. If you already set account, project is ignored and you can remove it.
-  warnings.warn(warn, FutureWarning)
-/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/node.py:179: UserWarning: Port 8787 is already in use.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/node.py:179: UserWarning: Port 8787 is already in use.
 Perhaps you already have a cluster running?
-Hosting the HTTP server on port 41034 instead
+Hosting the HTTP server on port 45160 instead
   warnings.warn(
-/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/dask_jobqueue/pbs.py:82: FutureWarning: project has been renamed to account as this kwarg was used wit -A option. You are still using it (please also check config files). If you did not set account yet, project will be respected for now, but it will be removed in a future release. If you already set account, project is ignored and you can remove it.
-  warnings.warn(warn, FutureWarning)
 </pre></div>
 </div>
 </div>
@@ -500,11 +572,11 @@ Hosting the HTTP server on port 41034 instead
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">PBSCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">078fa95f</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">b0f62b15</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
-                    <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/41034/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/41034/status</a>
+                    <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/45160/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/45160/status</a>
                 </td>
                 <td style="text-align: left;">
                     <strong>Workers:</strong> 0
@@ -531,11 +603,11 @@ Hosting the HTTP server on port 41034 instead
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-d41d9eb9-e2ad-4384-9e02-859267e4037a</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-5a172d3b-05ad-442c-895a-ed30d6e891fd</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://10.12.206.48:41990
+                        <strong>Comm:</strong> tcp://10.12.206.48:42755
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 0
@@ -543,7 +615,7 @@ Hosting the HTTP server on port 41034 instead
                 </tr>
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/41034/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/41034/status</a>
+                        <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/45160/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/45160/status</a>
                     </td>
                     <td style="text-align: left;">
                         <strong>Total threads:</strong> 0
@@ -616,11 +688,129 @@ Hosting the HTTP server on port 41034 instead
                        <span class="n">coords</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span><span class="n">compat</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span><span class="n">data_vars</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>
                        <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">fgrd</span> <span class="o">=</span> <span class="s1">&#39;/glade/work/whokim/grid/POP.TL319_t13.grid.nc&#39;</span>
-<span class="n">ds_grid</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">fgrd</span><span class="p">)</span>
+<span class="n">ds_grid</span> <span class="o">=</span> <span class="n">pop_tools</span><span class="o">.</span><span class="n">get_grid</span><span class="p">(</span><span class="s1">&#39;POP_tx0.1v3&#39;</span><span class="p">)</span>
 
 <span class="n">fmoc</span> <span class="o">=</span> <span class="s1">&#39;/glade/u/home/yeager/analysis/python/POP_MOC/moc_template.nc&#39;</span>
 <span class="n">ds_moctemp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">fmoc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># TODO: this script takes *history* files as input</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># TODO: loop through file years?</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">fin</span> <span class="o">=</span> <span class="n">fdir</span> <span class="o">+</span> <span class="s1">&#39;*VEL.*.nc&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">fin</span><span class="p">,</span><span class="n">combine</span><span class="o">=</span><span class="s1">&#39;by_coords&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>                        <span class="n">preprocess</span><span class="o">=</span><span class="n">preprocessor</span><span class="p">,</span><span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;nlon&#39;</span><span class="p">:</span><span class="mi">300</span><span class="p">},</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>                        <span class="n">coords</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span><span class="n">compat</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span><span class="n">data_vars</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>                        <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">fgrd</span> <span class="o">=</span> <span class="s1">&#39;/glade/work/whokim/grid/POP.TL319_t13.grid.nc&#39;</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">ds_grid</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">fgrd</span><span class="p">)</span>
+
+<span class="nn">File ~/.conda/envs/ipogs/lib/python3.10/site-packages/xarray/backends/api.py:1004,</span> in <span class="ni">open_mfdataset</span><span class="nt">(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">999</span>     <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="n">preprocess</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span> <span class="k">for</span> <span class="n">ds</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1001</span> <span class="k">if</span> <span class="n">parallel</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1002</span>     <span class="c1"># calling compute here will return the datasets/file_objs lists,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1003</span>     <span class="c1"># the underlying datasets will still be stored as dask arrays</span>
+<span class="ne">-&gt; </span><span class="mi">1004</span>     <span class="n">datasets</span><span class="p">,</span> <span class="n">closers</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="n">closers</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1006</span> <span class="c1"># Combine all datasets, closing them in case of a ValueError</span>
+<span class="g g-Whitespace">   </span><span class="mi">1007</span> <span class="k">try</span><span class="p">:</span>
+
+<span class="nn">File ~/.conda/envs/ipogs/lib/python3.10/site-packages/dask/base.py:603,</span> in <span class="ni">compute</span><span class="nt">(traverse, optimize_graph, scheduler, get, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">600</span>     <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">__dask_keys__</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">601</span>     <span class="n">postcomputes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">__dask_postcompute__</span><span class="p">())</span>
+<span class="ne">--&gt; </span><span class="mi">603</span> <span class="n">results</span> <span class="o">=</span> <span class="n">schedule</span><span class="p">(</span><span class="n">dsk</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">    604 return repack([f(r, *a) for r, (f, a)</span> in <span class="ni">zip</span><span class="nt">(results, postcomputes)])</span>
+
+<span class="nn">File ~/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/client.py:3000,</span> in <span class="ni">Client.get</span><span class="nt">(self, dsk, keys, workers, allow_other_workers, resources, sync, asynchronous, direct, retries, priority, fifo_timeout, actors, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2998</span>         <span class="n">should_rejoin</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">   </span><span class="mi">2999</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3000</span>     <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">packed</span><span class="p">,</span> <span class="n">asynchronous</span><span class="o">=</span><span class="n">asynchronous</span><span class="p">,</span> <span class="n">direct</span><span class="o">=</span><span class="n">direct</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3001</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3002</span>     <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">futures</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+
+<span class="nn">File ~/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/client.py:2174,</span> in <span class="ni">Client.gather</span><span class="nt">(self, futures, errors, direct, asynchronous)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2172</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2173</span>     <span class="n">local_worker</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">2174</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sync</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2175</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_gather</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2176</span>     <span class="n">futures</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2177</span>     <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2178</span>     <span class="n">direct</span><span class="o">=</span><span class="n">direct</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2179</span>     <span class="n">local_worker</span><span class="o">=</span><span class="n">local_worker</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2180</span>     <span class="n">asynchronous</span><span class="o">=</span><span class="n">asynchronous</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2181</span> <span class="p">)</span>
+
+<span class="nn">File ~/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/utils.py:338,</span> in <span class="ni">SyncMethodMixin.sync</span><span class="nt">(self, func, asynchronous, callback_timeout, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">336</span>     <span class="k">return</span> <span class="n">future</span>
+<span class="g g-Whitespace">    </span><span class="mi">337</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">338</span>     <span class="k">return</span> <span class="n">sync</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">339</span>         <span class="bp">self</span><span class="o">.</span><span class="n">loop</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">callback_timeout</span><span class="o">=</span><span class="n">callback_timeout</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">340</span>     <span class="p">)</span>
+
+<span class="nn">File ~/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/utils.py:405,</span> in <span class="ni">sync</span><span class="nt">(loop, func, callback_timeout, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="n">typ</span><span class="p">,</span> <span class="n">exc</span><span class="p">,</span> <span class="n">tb</span> <span class="o">=</span> <span class="n">error</span>
+<span class="ne">--&gt; </span><span class="mi">405</span>     <span class="k">raise</span> <span class="n">exc</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">tb</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File ~/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/utils.py:378,</span> in <span class="ni">sync.&lt;locals&gt;.f</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">376</span>         <span class="n">future</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait_for</span><span class="p">(</span><span class="n">future</span><span class="p">,</span> <span class="n">callback_timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">377</span>     <span class="n">future</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">ensure_future</span><span class="p">(</span><span class="n">future</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">378</span>     <span class="n">result</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">future</span>
+<span class="g g-Whitespace">    </span><span class="mi">379</span> <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">380</span>     <span class="n">error</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()</span>
+
+<span class="nn">File ~/.conda/envs/ipogs/lib/python3.10/site-packages/tornado/gen.py:769,</span> in <span class="ni">run</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span> <span class="k">if</span> <span class="n">exc_info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">768</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">769</span>         <span class="n">yielded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="o">.</span><span class="n">throw</span><span class="p">(</span><span class="o">*</span><span class="n">exc_info</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+<span class="g g-Whitespace">    </span><span class="mi">770</span>     <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">771</span>         <span class="c1"># Break up a reference to itself</span>
+<span class="g g-Whitespace">    </span><span class="mi">772</span>         <span class="c1"># for faster GC on CPython.</span>
+<span class="g g-Whitespace">    </span><span class="mi">773</span>         <span class="n">exc_info</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nn">File ~/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/client.py:2037,</span> in <span class="ni">Client._gather</span><span class="nt">(self, futures, errors, direct, local_worker)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2035</span>         <span class="n">exc</span> <span class="o">=</span> <span class="n">CancelledError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2036</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2037</span>         <span class="k">raise</span> <span class="n">exception</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">traceback</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2038</span>     <span class="k">raise</span> <span class="n">exc</span>
+<span class="g g-Whitespace">   </span><span class="mi">2039</span> <span class="k">if</span> <span class="n">errors</span> <span class="o">==</span> <span class="s2">&quot;skip&quot;</span><span class="p">:</span>
+
+<span class="nn">Cell In[21], line 18,</span> in <span class="ni">preprocessor</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="nb">print</span><span class="p">(</span><span class="n">ds0</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">keepvars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;VVEL&#39;</span><span class="p">,</span><span class="s1">&#39;WVEL&#39;</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">18</span> <span class="n">d0</span> <span class="o">=</span> <span class="n">ds0</span><span class="p">[</span><span class="n">keepvars</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">d0</span> <span class="o">=</span> <span class="n">time_set_midmonth</span><span class="p">(</span><span class="n">d0</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="k">return</span> <span class="n">d0</span>
+
+<span class="nn">File ~/.conda/envs/ipogs/lib/python3.10/site-packages/xarray/core/dataset.py:1432,</span> in <span class="ni">__getitem__</span><span class="nt">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1430</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_construct_dataarray</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1431</span> <span class="k">if</span> <span class="n">utils</span><span class="o">.</span><span class="n">iterable_of_hashable</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1432</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_copy_listed</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1433</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported key-type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/.conda/envs/ipogs/lib/python3.10/site-packages/xarray/core/dataset.py:1303,</span> in <span class="ni">_copy_listed</span><span class="nt">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>     <span class="n">variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1302</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1303</span>     <span class="n">ref_name</span><span class="p">,</span> <span class="n">var_name</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">_get_virtual_variable</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1304</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_variables</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span>
+<span class="g g-Whitespace">   </span><span class="mi">1305</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1306</span>     <span class="n">variables</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">var</span>
+<span class="g g-Whitespace">   </span><span class="mi">1307</span>     <span class="k">if</span> <span class="n">ref_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coord_names</span> <span class="ow">or</span> <span class="n">ref_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">:</span>
+
+<span class="nn">File ~/.conda/envs/ipogs/lib/python3.10/site-packages/xarray/core/dataset.py:177,</span> in <span class="ni">_get_virtual_variable</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span> <span class="n">split_key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">split_key</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">177</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">179</span> <span class="n">ref_name</span><span class="p">,</span> <span class="n">var_name</span> <span class="o">=</span> <span class="n">split_key</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span> <span class="n">ref_var</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="n">ref_name</span><span class="p">]</span>
+
+<span class="ne">KeyError</span>: &#39;WVEL&#39;
 </pre></div>
 </div>
 </div>
@@ -631,796 +821,6 @@ Hosting the HTTP server on port 41034 instead
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
-<defs>
-<symbol id="icon-database" viewBox="0 0 32 32">
-<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
-<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
-<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
-</symbol>
-<symbol id="icon-file-text2" viewBox="0 0 32 32">
-<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
-<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-</symbol>
-</defs>
-</svg>
-<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
- *
- */
-
-:root {
-  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
-  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
-  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
-  --xr-border-color: var(--jp-border-color2, #e0e0e0);
-  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
-  --xr-background-color: var(--jp-layout-color0, white);
-  --xr-background-color-row-even: var(--jp-layout-color1, white);
-  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
-}
-
-html[theme=dark],
-body.vscode-dark {
-  --xr-font-color0: rgba(255, 255, 255, 1);
-  --xr-font-color2: rgba(255, 255, 255, 0.54);
-  --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
-  --xr-disabled-color: #515151;
-  --xr-background-color: #111111;
-  --xr-background-color-row-even: #111111;
-  --xr-background-color-row-odd: #313131;
-}
-
-.xr-wrap {
-  display: block;
-  min-width: 300px;
-  max-width: 700px;
-}
-
-.xr-text-repr-fallback {
-  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
-  display: none;
-}
-
-.xr-header {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  margin-bottom: 4px;
-  border-bottom: solid 1px var(--xr-border-color);
-}
-
-.xr-header > div,
-.xr-header > ul {
-  display: inline;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.xr-obj-type,
-.xr-array-name {
-  margin-left: 2px;
-  margin-right: 10px;
-}
-
-.xr-obj-type {
-  color: var(--xr-font-color2);
-}
-
-.xr-sections {
-  padding-left: 0 !important;
-  display: grid;
-  grid-template-columns: 150px auto auto 1fr 20px 20px;
-}
-
-.xr-section-item {
-  display: contents;
-}
-
-.xr-section-item input {
-  display: none;
-}
-
-.xr-section-item input + label {
-  color: var(--xr-disabled-color);
-}
-
-.xr-section-item input:enabled + label {
-  cursor: pointer;
-  color: var(--xr-font-color2);
-}
-
-.xr-section-item input:enabled + label:hover {
-  color: var(--xr-font-color0);
-}
-
-.xr-section-summary {
-  grid-column: 1;
-  color: var(--xr-font-color2);
-  font-weight: 500;
-}
-
-.xr-section-summary > span {
-  display: inline-block;
-  padding-left: 0.5em;
-}
-
-.xr-section-summary-in:disabled + label {
-  color: var(--xr-font-color2);
-}
-
-.xr-section-summary-in + label:before {
-  display: inline-block;
-  content: '►';
-  font-size: 11px;
-  width: 15px;
-  text-align: center;
-}
-
-.xr-section-summary-in:disabled + label:before {
-  color: var(--xr-disabled-color);
-}
-
-.xr-section-summary-in:checked + label:before {
-  content: '▼';
-}
-
-.xr-section-summary-in:checked + label > span {
-  display: none;
-}
-
-.xr-section-summary,
-.xr-section-inline-details {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-.xr-section-inline-details {
-  grid-column: 2 / -1;
-}
-
-.xr-section-details {
-  display: none;
-  grid-column: 1 / -1;
-  margin-bottom: 5px;
-}
-
-.xr-section-summary-in:checked ~ .xr-section-details {
-  display: contents;
-}
-
-.xr-array-wrap {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 20px auto;
-}
-
-.xr-array-wrap > label {
-  grid-column: 1;
-  vertical-align: top;
-}
-
-.xr-preview {
-  color: var(--xr-font-color3);
-}
-
-.xr-array-preview,
-.xr-array-data {
-  padding: 0 5px !important;
-  grid-column: 2;
-}
-
-.xr-array-data,
-.xr-array-in:checked ~ .xr-array-preview {
-  display: none;
-}
-
-.xr-array-in:checked ~ .xr-array-data,
-.xr-array-preview {
-  display: inline-block;
-}
-
-.xr-dim-list {
-  display: inline-block !important;
-  list-style: none;
-  padding: 0 !important;
-  margin: 0;
-}
-
-.xr-dim-list li {
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-}
-
-.xr-dim-list:before {
-  content: '(';
-}
-
-.xr-dim-list:after {
-  content: ')';
-}
-
-.xr-dim-list li:not(:last-child):after {
-  content: ',';
-  padding-right: 5px;
-}
-
-.xr-has-index {
-  font-weight: bold;
-}
-
-.xr-var-list,
-.xr-var-item {
-  display: contents;
-}
-
-.xr-var-item > div,
-.xr-var-item label,
-.xr-var-item > .xr-var-name span {
-  background-color: var(--xr-background-color-row-even);
-  margin-bottom: 0;
-}
-
-.xr-var-item > .xr-var-name:hover span {
-  padding-right: 5px;
-}
-
-.xr-var-list > li:nth-child(odd) > div,
-.xr-var-list > li:nth-child(odd) > label,
-.xr-var-list > li:nth-child(odd) > .xr-var-name span {
-  background-color: var(--xr-background-color-row-odd);
-}
-
-.xr-var-name {
-  grid-column: 1;
-}
-
-.xr-var-dims {
-  grid-column: 2;
-}
-
-.xr-var-dtype {
-  grid-column: 3;
-  text-align: right;
-  color: var(--xr-font-color2);
-}
-
-.xr-var-preview {
-  grid-column: 4;
-}
-
-.xr-var-name,
-.xr-var-dims,
-.xr-var-dtype,
-.xr-preview,
-.xr-attrs dt {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-right: 10px;
-}
-
-.xr-var-name:hover,
-.xr-var-dims:hover,
-.xr-var-dtype:hover,
-.xr-attrs dt:hover {
-  overflow: visible;
-  width: auto;
-  z-index: 1;
-}
-
-.xr-var-attrs,
-.xr-var-data {
-  display: none;
-  background-color: var(--xr-background-color) !important;
-  padding-bottom: 5px !important;
-}
-
-.xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
-  display: block;
-}
-
-.xr-var-data > table {
-  float: right;
-}
-
-.xr-var-name span,
-.xr-var-data,
-.xr-attrs {
-  padding-left: 25px !important;
-}
-
-.xr-attrs,
-.xr-var-attrs,
-.xr-var-data {
-  grid-column: 1 / -1;
-}
-
-dl.xr-attrs {
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 125px auto;
-}
-
-.xr-attrs dt,
-.xr-attrs dd {
-  padding: 0;
-  margin: 0;
-  float: left;
-  padding-right: 10px;
-  width: auto;
-}
-
-.xr-attrs dt {
-  font-weight: normal;
-  grid-column: 1;
-}
-
-.xr-attrs dt:hover span {
-  display: inline-block;
-  background: var(--xr-background-color);
-  padding-right: 10px;
-}
-
-.xr-attrs dd {
-  grid-column: 2;
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-
-.xr-icon-database,
-.xr-icon-file-text2 {
-  display: inline-block;
-  vertical-align: middle;
-  width: 1em;
-  height: 1.5em !important;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-}
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;WVEL&#x27; (time: 12, z_w_top: 62, nlat: 2400, nlon: 3600)&gt;
-dask.array&lt;concatenate, shape=(12, 62, 2400, 3600), dtype=float32, chunksize=(1, 62, 2400, 300), chunktype=numpy.ndarray&gt;
-Coordinates:
-  * time     (time) object 0060-01-15 00:00:00 ... 0060-12-15 00:00:00
-  * z_w_top  (z_w_top) float32 0.0 1e+03 2e+03 ... 5.25e+05 5.5e+05 5.75e+05
-    ULONG    (nlat, nlon) float64 dask.array&lt;chunksize=(2400, 300), meta=np.ndarray&gt;
-    ULAT     (nlat, nlon) float64 dask.array&lt;chunksize=(2400, 300), meta=np.ndarray&gt;
-    TLONG    (nlat, nlon) float64 dask.array&lt;chunksize=(2400, 300), meta=np.ndarray&gt;
-    TLAT     (nlat, nlon) float64 dask.array&lt;chunksize=(2400, 300), meta=np.ndarray&gt;
-Dimensions without coordinates: nlat, nlon
-Attributes:
-    long_name:     Vertical Velocity
-    units:         centimeter/s
-    grid_loc:      3112
-    cell_methods:  time: mean</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'WVEL'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 12</li><li><span class='xr-has-index'>z_w_top</span>: 62</li><li><span>nlat</span>: 2400</li><li><span>nlon</span>: 3600</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-90b5afb9-3a8f-4ddb-9b17-e071d773e731' class='xr-array-in' type='checkbox' checked><label for='section-90b5afb9-3a8f-4ddb-9b17-e071d773e731' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(1, 62, 2400, 300), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
-    <tr>
-        <td>
-            <table>
-                <thead>
-                    <tr>
-                        <td> </td>
-                        <th> Array </th>
-                        <th> Chunk </th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr>
-                        <th> Bytes </th>
-                        <td> 23.95 GiB </td>
-                        <td> 170.29 MiB </td>
-                    </tr>
-
-                    <tr>
-                        <th> Shape </th>
-                        <td> (12, 62, 2400, 3600) </td>
-                        <td> (1, 62, 2400, 300) </td>
-                    </tr>
-                    <tr>
-                        <th> Count </th>
-                        <td> 300 Tasks </td>
-                        <td> 144 Chunks </td>
-                    </tr>
-                    <tr>
-                    <th> Type </th>
-                    <td> float32 </td>
-                    <td> numpy.ndarray </td>
-                    </tr>
-                </tbody>
-            </table>
-        </td>
-        <td>
-        <svg width="376" height="146" style="stroke:rgb(0,0,0);stroke-width:1" >
-
-  <!-- Horizontal lines -->
-  <line x1="0" y1="0" x2="25" y2="0" style="stroke-width:2" />
-  <line x1="0" y1="25" x2="25" y2="25" style="stroke-width:2" />
-
-  <!-- Vertical lines -->
-  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
-  <line x1="2" y1="0" x2="2" y2="25" />
-  <line x1="4" y1="0" x2="4" y2="25" />
-  <line x1="6" y1="0" x2="6" y2="25" />
-  <line x1="8" y1="0" x2="8" y2="25" />
-  <line x1="10" y1="0" x2="10" y2="25" />
-  <line x1="12" y1="0" x2="12" y2="25" />
-  <line x1="14" y1="0" x2="14" y2="25" />
-  <line x1="16" y1="0" x2="16" y2="25" />
-  <line x1="19" y1="0" x2="19" y2="25" />
-  <line x1="21" y1="0" x2="21" y2="25" />
-  <line x1="23" y1="0" x2="23" y2="25" />
-  <line x1="25" y1="0" x2="25" y2="25" style="stroke-width:2" />
-
-  <!-- Colored Rectangle -->
-  <polygon points="0.0,0.0 25.412616514582485,0.0 25.412616514582485,25.412616514582485 0.0,25.412616514582485" style="fill:#ECB172A0;stroke-width:0"/>
-
-  <!-- Text -->
-  <text x="12.706308" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >12</text>
-  <text x="45.412617" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,45.412617,12.706308)">1</text>
-
-
-  <!-- Horizontal lines -->
-  <line x1="95" y1="0" x2="111" y2="16" style="stroke-width:2" />
-  <line x1="95" y1="80" x2="111" y2="96" style="stroke-width:2" />
-
-  <!-- Vertical lines -->
-  <line x1="95" y1="0" x2="95" y2="80" style="stroke-width:2" />
-  <line x1="111" y1="16" x2="111" y2="96" style="stroke-width:2" />
-
-  <!-- Colored Rectangle -->
-  <polygon points="95.0,0.0 111.58905350835097,16.589053508350972 111.58905350835097,96.58905350835097 95.0,80.0" style="fill:#ECB172A0;stroke-width:0"/>
-
-  <!-- Horizontal lines -->
-  <line x1="95" y1="0" x2="215" y2="0" style="stroke-width:2" />
-  <line x1="111" y1="16" x2="231" y2="16" style="stroke-width:2" />
-
-  <!-- Vertical lines -->
-  <line x1="95" y1="0" x2="111" y2="16" style="stroke-width:2" />
-  <line x1="105" y1="0" x2="121" y2="16" />
-  <line x1="115" y1="0" x2="131" y2="16" />
-  <line x1="125" y1="0" x2="141" y2="16" />
-  <line x1="135" y1="0" x2="151" y2="16" />
-  <line x1="145" y1="0" x2="161" y2="16" />
-  <line x1="155" y1="0" x2="171" y2="16" />
-  <line x1="165" y1="0" x2="181" y2="16" />
-  <line x1="175" y1="0" x2="191" y2="16" />
-  <line x1="185" y1="0" x2="201" y2="16" />
-  <line x1="195" y1="0" x2="211" y2="16" />
-  <line x1="205" y1="0" x2="221" y2="16" />
-  <line x1="215" y1="0" x2="231" y2="16" style="stroke-width:2" />
-
-  <!-- Colored Rectangle -->
-  <polygon points="95.0,0.0 215.0,0.0 231.58905350835096,16.589053508350972 111.58905350835097,16.589053508350972" style="fill:#ECB172A0;stroke-width:0"/>
-
-  <!-- Horizontal lines -->
-  <line x1="111" y1="16" x2="231" y2="16" style="stroke-width:2" />
-  <line x1="111" y1="96" x2="231" y2="96" style="stroke-width:2" />
-
-  <!-- Vertical lines -->
-  <line x1="111" y1="16" x2="111" y2="96" style="stroke-width:2" />
-  <line x1="121" y1="16" x2="121" y2="96" />
-  <line x1="131" y1="16" x2="131" y2="96" />
-  <line x1="141" y1="16" x2="141" y2="96" />
-  <line x1="151" y1="16" x2="151" y2="96" />
-  <line x1="161" y1="16" x2="161" y2="96" />
-  <line x1="171" y1="16" x2="171" y2="96" />
-  <line x1="181" y1="16" x2="181" y2="96" />
-  <line x1="191" y1="16" x2="191" y2="96" />
-  <line x1="201" y1="16" x2="201" y2="96" />
-  <line x1="211" y1="16" x2="211" y2="96" />
-  <line x1="221" y1="16" x2="221" y2="96" />
-  <line x1="231" y1="16" x2="231" y2="96" style="stroke-width:2" />
-
-  <!-- Colored Rectangle -->
-  <polygon points="111.58905350835097,16.589053508350972 231.58905350835096,16.589053508350972 231.58905350835096,96.58905350835097 111.58905350835097,96.58905350835097" style="fill:#ECB172A0;stroke-width:0"/>
-
-  <!-- Text -->
-  <text x="171.589054" y="116.589054" font-size="1.0rem" font-weight="100" text-anchor="middle" >3600</text>
-  <text x="251.589054" y="56.589054" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,251.589054,56.589054)">2400</text>
-  <text x="93.294527" y="108.294527" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,93.294527,108.294527)">62</text>
-</svg>
-        </td>
-    </tr>
-</table></div></div></li><li class='xr-section-item'><input id='section-a5637187-6e56-4a3a-9e24-6a8fbf6139d1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a5637187-6e56-4a3a-9e24-6a8fbf6139d1' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>0060-01-15 00:00:00 ... 0060-12-...</div><input id='attrs-5029de84-ccde-429a-9930-ce62f2b27e82' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5029de84-ccde-429a-9930-ce62f2b27e82' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b390d452-d928-4631-bcef-a8b32ac35bd2' class='xr-var-data-in' type='checkbox'><label for='data-b390d452-d928-4631-bcef-a8b32ac35bd2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(60, 1, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 2, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 3, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 4, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 5, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 6, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 7, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 8, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 9, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 10, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 11, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 12, 15, 0, 0, 0, 0, has_year_zero=True)],
-      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>z_w_top</span></div><div class='xr-var-dims'>(z_w_top)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 1e+03 ... 5.5e+05 5.75e+05</div><input id='attrs-c6bde718-5af0-488d-87a0-f02d9e1d2ed8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c6bde718-5af0-488d-87a0-f02d9e1d2ed8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-95ca9ba4-4151-42e3-b2e4-e68497f6ce51' class='xr-var-data-in' type='checkbox'><label for='data-95ca9ba4-4151-42e3-b2e4-e68497f6ce51' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>depth from surface to top of layer</dd><dt><span>units :</span></dt><dd>centimeters</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>valid_max :</span></dt><dd>574999.06</dd></dl></div><div class='xr-var-data'><pre>array([     0.   ,   1000.   ,   2000.   ,   3000.   ,   4000.   ,   5000.   ,
-         6000.   ,   7000.   ,   8000.   ,   9000.   ,  10000.   ,  11000.   ,
-        12000.   ,  13000.   ,  14000.   ,  15000.   ,  16000.   ,  17019.682,
-        18076.129,  19182.125,  20349.932,  21592.344,  22923.312,  24358.453,
-        25915.58 ,  27615.26 ,  29481.47 ,  31542.373,  33831.227,  36387.473,
-        39258.047,  42498.887,  46176.656,  50370.688,  55174.91 ,  60699.668,
-        67072.86 ,  74439.805,  82960.695,  92804.35 , 104136.82 , 117104.016,
-       131809.36 , 148290.08 , 166499.2  , 186301.44 , 207487.39 , 229803.9  ,
-       252990.4  , 276809.84 , 301067.06 , 325613.84 , 350344.88 , 375189.2  ,
-       400101.16 , 425052.47 , 450026.06 , 475012.   , 500004.7  , 525000.94 ,
-       549999.06 , 574999.06 ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ULONG</span></div><div class='xr-var-dims'>(nlat, nlon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(2400, 300), meta=np.ndarray&gt;</div><input id='attrs-b5856a27-3372-4fba-9721-8f58fc61ed40' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b5856a27-3372-4fba-9721-8f58fc61ed40' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-86fe398d-cabf-452c-ba23-94e30fdb4001' class='xr-var-data-in' type='checkbox'><label for='data-86fe398d-cabf-452c-ba23-94e30fdb4001' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>array of u-grid longitudes</dd><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><table>
-    <tr>
-        <td>
-            <table>
-                <thead>
-                    <tr>
-                        <td> </td>
-                        <th> Array </th>
-                        <th> Chunk </th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr>
-                        <th> Bytes </th>
-                        <td> 65.92 MiB </td>
-                        <td> 5.49 MiB </td>
-                    </tr>
-
-                    <tr>
-                        <th> Shape </th>
-                        <td> (2400, 3600) </td>
-                        <td> (2400, 300) </td>
-                    </tr>
-                    <tr>
-                        <th> Count </th>
-                        <td> 13 Tasks </td>
-                        <td> 12 Chunks </td>
-                    </tr>
-                    <tr>
-                    <th> Type </th>
-                    <td> float64 </td>
-                    <td> numpy.ndarray </td>
-                    </tr>
-                </tbody>
-            </table>
-        </td>
-        <td>
-        <svg width="170" height="130" style="stroke:rgb(0,0,0);stroke-width:1" >
-
-  <!-- Horizontal lines -->
-  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
-  <line x1="0" y1="80" x2="120" y2="80" style="stroke-width:2" />
-
-  <!-- Vertical lines -->
-  <line x1="0" y1="0" x2="0" y2="80" style="stroke-width:2" />
-  <line x1="10" y1="0" x2="10" y2="80" />
-  <line x1="20" y1="0" x2="20" y2="80" />
-  <line x1="30" y1="0" x2="30" y2="80" />
-  <line x1="40" y1="0" x2="40" y2="80" />
-  <line x1="50" y1="0" x2="50" y2="80" />
-  <line x1="60" y1="0" x2="60" y2="80" />
-  <line x1="70" y1="0" x2="70" y2="80" />
-  <line x1="80" y1="0" x2="80" y2="80" />
-  <line x1="90" y1="0" x2="90" y2="80" />
-  <line x1="100" y1="0" x2="100" y2="80" />
-  <line x1="110" y1="0" x2="110" y2="80" />
-  <line x1="120" y1="0" x2="120" y2="80" style="stroke-width:2" />
-
-  <!-- Colored Rectangle -->
-  <polygon points="0.0,0.0 120.0,0.0 120.0,80.0 0.0,80.0" style="fill:#ECB172A0;stroke-width:0"/>
-
-  <!-- Text -->
-  <text x="60.000000" y="100.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" >3600</text>
-  <text x="140.000000" y="40.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,140.000000,40.000000)">2400</text>
-</svg>
-        </td>
-    </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ULAT</span></div><div class='xr-var-dims'>(nlat, nlon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(2400, 300), meta=np.ndarray&gt;</div><input id='attrs-8bf6f906-e8fc-49ed-bfae-ae4793c987c2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8bf6f906-e8fc-49ed-bfae-ae4793c987c2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fa6110e6-5471-4cc3-83c3-16d3ab782405' class='xr-var-data-in' type='checkbox'><label for='data-fa6110e6-5471-4cc3-83c3-16d3ab782405' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>array of u-grid latitudes</dd><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><table>
-    <tr>
-        <td>
-            <table>
-                <thead>
-                    <tr>
-                        <td> </td>
-                        <th> Array </th>
-                        <th> Chunk </th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr>
-                        <th> Bytes </th>
-                        <td> 65.92 MiB </td>
-                        <td> 5.49 MiB </td>
-                    </tr>
-
-                    <tr>
-                        <th> Shape </th>
-                        <td> (2400, 3600) </td>
-                        <td> (2400, 300) </td>
-                    </tr>
-                    <tr>
-                        <th> Count </th>
-                        <td> 13 Tasks </td>
-                        <td> 12 Chunks </td>
-                    </tr>
-                    <tr>
-                    <th> Type </th>
-                    <td> float64 </td>
-                    <td> numpy.ndarray </td>
-                    </tr>
-                </tbody>
-            </table>
-        </td>
-        <td>
-        <svg width="170" height="130" style="stroke:rgb(0,0,0);stroke-width:1" >
-
-  <!-- Horizontal lines -->
-  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
-  <line x1="0" y1="80" x2="120" y2="80" style="stroke-width:2" />
-
-  <!-- Vertical lines -->
-  <line x1="0" y1="0" x2="0" y2="80" style="stroke-width:2" />
-  <line x1="10" y1="0" x2="10" y2="80" />
-  <line x1="20" y1="0" x2="20" y2="80" />
-  <line x1="30" y1="0" x2="30" y2="80" />
-  <line x1="40" y1="0" x2="40" y2="80" />
-  <line x1="50" y1="0" x2="50" y2="80" />
-  <line x1="60" y1="0" x2="60" y2="80" />
-  <line x1="70" y1="0" x2="70" y2="80" />
-  <line x1="80" y1="0" x2="80" y2="80" />
-  <line x1="90" y1="0" x2="90" y2="80" />
-  <line x1="100" y1="0" x2="100" y2="80" />
-  <line x1="110" y1="0" x2="110" y2="80" />
-  <line x1="120" y1="0" x2="120" y2="80" style="stroke-width:2" />
-
-  <!-- Colored Rectangle -->
-  <polygon points="0.0,0.0 120.0,0.0 120.0,80.0 0.0,80.0" style="fill:#ECB172A0;stroke-width:0"/>
-
-  <!-- Text -->
-  <text x="60.000000" y="100.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" >3600</text>
-  <text x="140.000000" y="40.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,140.000000,40.000000)">2400</text>
-</svg>
-        </td>
-    </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>TLONG</span></div><div class='xr-var-dims'>(nlat, nlon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(2400, 300), meta=np.ndarray&gt;</div><input id='attrs-d66f7cbf-14fb-4d9d-b902-56febe777542' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d66f7cbf-14fb-4d9d-b902-56febe777542' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3a95eb5c-3892-4b5d-ae9a-e93dc9def6cf' class='xr-var-data-in' type='checkbox'><label for='data-3a95eb5c-3892-4b5d-ae9a-e93dc9def6cf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>array of t-grid longitudes</dd><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><table>
-    <tr>
-        <td>
-            <table>
-                <thead>
-                    <tr>
-                        <td> </td>
-                        <th> Array </th>
-                        <th> Chunk </th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr>
-                        <th> Bytes </th>
-                        <td> 65.92 MiB </td>
-                        <td> 5.49 MiB </td>
-                    </tr>
-
-                    <tr>
-                        <th> Shape </th>
-                        <td> (2400, 3600) </td>
-                        <td> (2400, 300) </td>
-                    </tr>
-                    <tr>
-                        <th> Count </th>
-                        <td> 13 Tasks </td>
-                        <td> 12 Chunks </td>
-                    </tr>
-                    <tr>
-                    <th> Type </th>
-                    <td> float64 </td>
-                    <td> numpy.ndarray </td>
-                    </tr>
-                </tbody>
-            </table>
-        </td>
-        <td>
-        <svg width="170" height="130" style="stroke:rgb(0,0,0);stroke-width:1" >
-
-  <!-- Horizontal lines -->
-  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
-  <line x1="0" y1="80" x2="120" y2="80" style="stroke-width:2" />
-
-  <!-- Vertical lines -->
-  <line x1="0" y1="0" x2="0" y2="80" style="stroke-width:2" />
-  <line x1="10" y1="0" x2="10" y2="80" />
-  <line x1="20" y1="0" x2="20" y2="80" />
-  <line x1="30" y1="0" x2="30" y2="80" />
-  <line x1="40" y1="0" x2="40" y2="80" />
-  <line x1="50" y1="0" x2="50" y2="80" />
-  <line x1="60" y1="0" x2="60" y2="80" />
-  <line x1="70" y1="0" x2="70" y2="80" />
-  <line x1="80" y1="0" x2="80" y2="80" />
-  <line x1="90" y1="0" x2="90" y2="80" />
-  <line x1="100" y1="0" x2="100" y2="80" />
-  <line x1="110" y1="0" x2="110" y2="80" />
-  <line x1="120" y1="0" x2="120" y2="80" style="stroke-width:2" />
-
-  <!-- Colored Rectangle -->
-  <polygon points="0.0,0.0 120.0,0.0 120.0,80.0 0.0,80.0" style="fill:#ECB172A0;stroke-width:0"/>
-
-  <!-- Text -->
-  <text x="60.000000" y="100.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" >3600</text>
-  <text x="140.000000" y="40.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,140.000000,40.000000)">2400</text>
-</svg>
-        </td>
-    </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>TLAT</span></div><div class='xr-var-dims'>(nlat, nlon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(2400, 300), meta=np.ndarray&gt;</div><input id='attrs-76fddb4d-328e-4e98-9a5f-1f42d8526001' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-76fddb4d-328e-4e98-9a5f-1f42d8526001' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4b4f5ee8-76be-47d6-b50c-2d605b9952f3' class='xr-var-data-in' type='checkbox'><label for='data-4b4f5ee8-76be-47d6-b50c-2d605b9952f3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>array of t-grid latitudes</dd><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><table>
-    <tr>
-        <td>
-            <table>
-                <thead>
-                    <tr>
-                        <td> </td>
-                        <th> Array </th>
-                        <th> Chunk </th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr>
-                        <th> Bytes </th>
-                        <td> 65.92 MiB </td>
-                        <td> 5.49 MiB </td>
-                    </tr>
-
-                    <tr>
-                        <th> Shape </th>
-                        <td> (2400, 3600) </td>
-                        <td> (2400, 300) </td>
-                    </tr>
-                    <tr>
-                        <th> Count </th>
-                        <td> 13 Tasks </td>
-                        <td> 12 Chunks </td>
-                    </tr>
-                    <tr>
-                    <th> Type </th>
-                    <td> float64 </td>
-                    <td> numpy.ndarray </td>
-                    </tr>
-                </tbody>
-            </table>
-        </td>
-        <td>
-        <svg width="170" height="130" style="stroke:rgb(0,0,0);stroke-width:1" >
-
-  <!-- Horizontal lines -->
-  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
-  <line x1="0" y1="80" x2="120" y2="80" style="stroke-width:2" />
-
-  <!-- Vertical lines -->
-  <line x1="0" y1="0" x2="0" y2="80" style="stroke-width:2" />
-  <line x1="10" y1="0" x2="10" y2="80" />
-  <line x1="20" y1="0" x2="20" y2="80" />
-  <line x1="30" y1="0" x2="30" y2="80" />
-  <line x1="40" y1="0" x2="40" y2="80" />
-  <line x1="50" y1="0" x2="50" y2="80" />
-  <line x1="60" y1="0" x2="60" y2="80" />
-  <line x1="70" y1="0" x2="70" y2="80" />
-  <line x1="80" y1="0" x2="80" y2="80" />
-  <line x1="90" y1="0" x2="90" y2="80" />
-  <line x1="100" y1="0" x2="100" y2="80" />
-  <line x1="110" y1="0" x2="110" y2="80" />
-  <line x1="120" y1="0" x2="120" y2="80" style="stroke-width:2" />
-
-  <!-- Colored Rectangle -->
-  <polygon points="0.0,0.0 120.0,0.0 120.0,80.0 0.0,80.0" style="fill:#ECB172A0;stroke-width:0"/>
-
-  <!-- Text -->
-  <text x="60.000000" y="100.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" >3600</text>
-  <text x="140.000000" y="40.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,140.000000,40.000000)">2400</text>
-</svg>
-        </td>
-    </tr>
-</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-c5bb64fa-4f89-46a3-8a5a-280478d58ca2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c5bb64fa-4f89-46a3-8a5a-280478d58ca2' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Vertical Velocity</dd><dt><span>units :</span></dt><dd>centimeter/s</dd><dt><span>grid_loc :</span></dt><dd>3112</dd><dt><span>cell_methods :</span></dt><dd>time: mean</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 <section id="compute-volume-fluxes">
@@ -1432,12 +832,6 @@ Attributes:
 <span class="n">v_e</span> <span class="o">=</span> <span class="n">v_e</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">v_e</span><span class="o">&lt;</span><span class="mf">1.e30</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">w_e</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;WVEL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ULONG&#39;</span><span class="p">,</span><span class="s1">&#39;ULAT&#39;</span><span class="p">])</span>
 <span class="n">w_e</span> <span class="o">=</span> <span class="n">w_e</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">w_e</span><span class="o">&lt;</span><span class="mf">1.e30</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.72 ms, sys: 0 ns, total: 6.72 ms
-Wall time: 6.73 ms
 </pre></div>
 </div>
 </div>
@@ -1463,12 +857,6 @@ Wall time: 6.73 ms
 <span class="n">w_e</span> <span class="o">=</span> <span class="n">w_e</span><span class="o">*</span><span class="n">tarea</span><span class="o">/</span><span class="mf">1.e6</span>
 <span class="n">dxdz</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds_grid</span><span class="p">[</span><span class="s1">&#39;HTN&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ULONG&#39;</span><span class="p">,</span><span class="s1">&#39;TLAT&#39;</span><span class="p">])</span><span class="o">*</span><span class="n">ds_grid</span><span class="p">[</span><span class="s1">&#39;dz&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">v_e</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 <span class="n">v_e</span> <span class="o">=</span> <span class="n">v_e</span><span class="o">*</span><span class="n">dxdz</span><span class="o">/</span><span class="mf">1.e6</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7.79 s, sys: 2.02 s, total: 9.81 s
-Wall time: 27.7 s
 </pre></div>
 </div>
 </div>
@@ -1509,9 +897,6 @@ Wall time: 27.7 s
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/AMOCz_0.1deg_19_0.png" src="_images/AMOCz_0.1deg_19_0.png" />
-</div>
 </div>
 </section>
 <section id="compute-moc">
@@ -1523,12 +908,6 @@ Wall time: 27.7 s
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 463 ms, sys: 302 ms, total: 765 ms
-Wall time: 948 ms
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1536,514 +915,11 @@ Wall time: 948 ms
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
-<defs>
-<symbol id="icon-database" viewBox="0 0 32 32">
-<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
-<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
-<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
-</symbol>
-<symbol id="icon-file-text2" viewBox="0 0 32 32">
-<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
-<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-</symbol>
-</defs>
-</svg>
-<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
- *
- */
-
-:root {
-  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
-  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
-  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
-  --xr-border-color: var(--jp-border-color2, #e0e0e0);
-  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
-  --xr-background-color: var(--jp-layout-color0, white);
-  --xr-background-color-row-even: var(--jp-layout-color1, white);
-  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
-}
-
-html[theme=dark],
-body.vscode-dark {
-  --xr-font-color0: rgba(255, 255, 255, 1);
-  --xr-font-color2: rgba(255, 255, 255, 0.54);
-  --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
-  --xr-disabled-color: #515151;
-  --xr-background-color: #111111;
-  --xr-background-color-row-even: #111111;
-  --xr-background-color-row-odd: #313131;
-}
-
-.xr-wrap {
-  display: block;
-  min-width: 300px;
-  max-width: 700px;
-}
-
-.xr-text-repr-fallback {
-  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
-  display: none;
-}
-
-.xr-header {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  margin-bottom: 4px;
-  border-bottom: solid 1px var(--xr-border-color);
-}
-
-.xr-header > div,
-.xr-header > ul {
-  display: inline;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.xr-obj-type,
-.xr-array-name {
-  margin-left: 2px;
-  margin-right: 10px;
-}
-
-.xr-obj-type {
-  color: var(--xr-font-color2);
-}
-
-.xr-sections {
-  padding-left: 0 !important;
-  display: grid;
-  grid-template-columns: 150px auto auto 1fr 20px 20px;
-}
-
-.xr-section-item {
-  display: contents;
-}
-
-.xr-section-item input {
-  display: none;
-}
-
-.xr-section-item input + label {
-  color: var(--xr-disabled-color);
-}
-
-.xr-section-item input:enabled + label {
-  cursor: pointer;
-  color: var(--xr-font-color2);
-}
-
-.xr-section-item input:enabled + label:hover {
-  color: var(--xr-font-color0);
-}
-
-.xr-section-summary {
-  grid-column: 1;
-  color: var(--xr-font-color2);
-  font-weight: 500;
-}
-
-.xr-section-summary > span {
-  display: inline-block;
-  padding-left: 0.5em;
-}
-
-.xr-section-summary-in:disabled + label {
-  color: var(--xr-font-color2);
-}
-
-.xr-section-summary-in + label:before {
-  display: inline-block;
-  content: '►';
-  font-size: 11px;
-  width: 15px;
-  text-align: center;
-}
-
-.xr-section-summary-in:disabled + label:before {
-  color: var(--xr-disabled-color);
-}
-
-.xr-section-summary-in:checked + label:before {
-  content: '▼';
-}
-
-.xr-section-summary-in:checked + label > span {
-  display: none;
-}
-
-.xr-section-summary,
-.xr-section-inline-details {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-.xr-section-inline-details {
-  grid-column: 2 / -1;
-}
-
-.xr-section-details {
-  display: none;
-  grid-column: 1 / -1;
-  margin-bottom: 5px;
-}
-
-.xr-section-summary-in:checked ~ .xr-section-details {
-  display: contents;
-}
-
-.xr-array-wrap {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 20px auto;
-}
-
-.xr-array-wrap > label {
-  grid-column: 1;
-  vertical-align: top;
-}
-
-.xr-preview {
-  color: var(--xr-font-color3);
-}
-
-.xr-array-preview,
-.xr-array-data {
-  padding: 0 5px !important;
-  grid-column: 2;
-}
-
-.xr-array-data,
-.xr-array-in:checked ~ .xr-array-preview {
-  display: none;
-}
-
-.xr-array-in:checked ~ .xr-array-data,
-.xr-array-preview {
-  display: inline-block;
-}
-
-.xr-dim-list {
-  display: inline-block !important;
-  list-style: none;
-  padding: 0 !important;
-  margin: 0;
-}
-
-.xr-dim-list li {
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-}
-
-.xr-dim-list:before {
-  content: '(';
-}
-
-.xr-dim-list:after {
-  content: ')';
-}
-
-.xr-dim-list li:not(:last-child):after {
-  content: ',';
-  padding-right: 5px;
-}
-
-.xr-has-index {
-  font-weight: bold;
-}
-
-.xr-var-list,
-.xr-var-item {
-  display: contents;
-}
-
-.xr-var-item > div,
-.xr-var-item label,
-.xr-var-item > .xr-var-name span {
-  background-color: var(--xr-background-color-row-even);
-  margin-bottom: 0;
-}
-
-.xr-var-item > .xr-var-name:hover span {
-  padding-right: 5px;
-}
-
-.xr-var-list > li:nth-child(odd) > div,
-.xr-var-list > li:nth-child(odd) > label,
-.xr-var-list > li:nth-child(odd) > .xr-var-name span {
-  background-color: var(--xr-background-color-row-odd);
-}
-
-.xr-var-name {
-  grid-column: 1;
-}
-
-.xr-var-dims {
-  grid-column: 2;
-}
-
-.xr-var-dtype {
-  grid-column: 3;
-  text-align: right;
-  color: var(--xr-font-color2);
-}
-
-.xr-var-preview {
-  grid-column: 4;
-}
-
-.xr-var-name,
-.xr-var-dims,
-.xr-var-dtype,
-.xr-preview,
-.xr-attrs dt {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-right: 10px;
-}
-
-.xr-var-name:hover,
-.xr-var-dims:hover,
-.xr-var-dtype:hover,
-.xr-attrs dt:hover {
-  overflow: visible;
-  width: auto;
-  z-index: 1;
-}
-
-.xr-var-attrs,
-.xr-var-data {
-  display: none;
-  background-color: var(--xr-background-color) !important;
-  padding-bottom: 5px !important;
-}
-
-.xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
-  display: block;
-}
-
-.xr-var-data > table {
-  float: right;
-}
-
-.xr-var-name span,
-.xr-var-data,
-.xr-attrs {
-  padding-left: 25px !important;
-}
-
-.xr-attrs,
-.xr-var-attrs,
-.xr-var-data {
-  grid-column: 1 / -1;
-}
-
-dl.xr-attrs {
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 125px auto;
-}
-
-.xr-attrs dt,
-.xr-attrs dd {
-  padding: 0;
-  margin: 0;
-  float: left;
-  padding-right: 10px;
-  width: auto;
-}
-
-.xr-attrs dt {
-  font-weight: normal;
-  grid-column: 1;
-}
-
-.xr-attrs dt:hover span {
-  display: inline-block;
-  background: var(--xr-background-color);
-  padding-right: 10px;
-}
-
-.xr-attrs dd {
-  grid-column: 2;
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-
-.xr-icon-database,
-.xr-icon-file-text2 {
-  display: inline-block;
-  vertical-align: middle;
-  width: 1em;
-  height: 1.5em !important;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-}
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;MOC&#x27; (time: 12, moc_z: 63, transport_reg: 2, lat_aux_grid: 395)&gt;
-dask.array&lt;truediv, shape=(12, 63, 2, 395), dtype=float64, chunksize=(1, 63, 2, 394), chunktype=numpy.ndarray&gt;
-Coordinates:
-  * lat_aux_grid       (lat_aux_grid) float32 -79.49 -78.95 ... 89.47 90.0
-  * time               (time) object 0060-01-15 00:00:00 ... 0060-12-15 00:00:00
-  * moc_z              (moc_z) float32 0.0 1e+03 2e+03 ... 5.75e+05 6e+05
-    transport_regions  (transport_reg) |S256 b&#x27;Global Ocean - Marginal Seas&#x27; ...
-Dimensions without coordinates: transport_reg
-Attributes:
-    long_name:  Meridional Overturning Circulation
-    units:      Sv</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'MOC'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 12</li><li><span class='xr-has-index'>moc_z</span>: 63</li><li><span>transport_reg</span>: 2</li><li><span class='xr-has-index'>lat_aux_grid</span>: 395</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-84dd981f-6442-4e5a-bdc1-cd6dd5feb2c7' class='xr-array-in' type='checkbox' checked><label for='section-84dd981f-6442-4e5a-bdc1-cd6dd5feb2c7' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(1, 63, 2, 1), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
-    <tr>
-        <td>
-            <table>
-                <thead>
-                    <tr>
-                        <td> </td>
-                        <th> Array </th>
-                        <th> Chunk </th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr>
-                        <th> Bytes </th>
-                        <td> 4.56 MiB </td>
-                        <td> 387.84 kiB </td>
-                    </tr>
-
-                    <tr>
-                        <th> Shape </th>
-                        <td> (12, 63, 2, 395) </td>
-                        <td> (1, 63, 2, 394) </td>
-                    </tr>
-                    <tr>
-                        <th> Count </th>
-                        <td> 3126 Tasks </td>
-                        <td> 24 Chunks </td>
-                    </tr>
-                    <tr>
-                    <th> Type </th>
-                    <td> float64 </td>
-                    <td> numpy.ndarray </td>
-                    </tr>
-                </tbody>
-            </table>
-        </td>
-        <td>
-        <svg width="396" height="99" style="stroke:rgb(0,0,0);stroke-width:1" >
-
-  <!-- Horizontal lines -->
-  <line x1="0" y1="0" x2="31" y2="0" style="stroke-width:2" />
-  <line x1="0" y1="25" x2="31" y2="25" style="stroke-width:2" />
-
-  <!-- Vertical lines -->
-  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
-  <line x1="2" y1="0" x2="2" y2="25" />
-  <line x1="5" y1="0" x2="5" y2="25" />
-  <line x1="7" y1="0" x2="7" y2="25" />
-  <line x1="10" y1="0" x2="10" y2="25" />
-  <line x1="13" y1="0" x2="13" y2="25" />
-  <line x1="15" y1="0" x2="15" y2="25" />
-  <line x1="18" y1="0" x2="18" y2="25" />
-  <line x1="20" y1="0" x2="20" y2="25" />
-  <line x1="23" y1="0" x2="23" y2="25" />
-  <line x1="26" y1="0" x2="26" y2="25" />
-  <line x1="28" y1="0" x2="28" y2="25" />
-  <line x1="31" y1="0" x2="31" y2="25" style="stroke-width:2" />
-
-  <!-- Colored Rectangle -->
-  <polygon points="0.0,0.0 31.465713176933424,0.0 31.465713176933424,25.412616514582485 0.0,25.412616514582485" style="fill:#ECB172A0;stroke-width:0"/>
-
-  <!-- Text -->
-  <text x="15.732857" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >12</text>
-  <text x="51.465713" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,51.465713,12.706308)">1</text>
-
-
-  <!-- Horizontal lines -->
-  <line x1="101" y1="0" x2="125" y2="24" style="stroke-width:2" />
-  <line x1="101" y1="25" x2="125" y2="49" style="stroke-width:2" />
-
-  <!-- Vertical lines -->
-  <line x1="101" y1="0" x2="101" y2="25" style="stroke-width:2" />
-  <line x1="125" y1="24" x2="125" y2="49" style="stroke-width:2" />
-
-  <!-- Colored Rectangle -->
-  <polygon points="101.0,0.0 125.11698631750797,24.116986317507966 125.11698631750797,49.52960283209045 101.0,25.412616514582485" style="fill:#ECB172A0;stroke-width:0"/>
-
-  <!-- Horizontal lines -->
-  <line x1="101" y1="0" x2="221" y2="0" style="stroke-width:2" />
-  <line x1="125" y1="24" x2="245" y2="24" style="stroke-width:2" />
-
-  <!-- Vertical lines -->
-  <line x1="101" y1="0" x2="125" y2="24" style="stroke-width:2" />
-  <line x1="101" y1="0" x2="125" y2="24" />
-  <line x1="221" y1="0" x2="245" y2="24" style="stroke-width:2" />
-
-  <!-- Colored Rectangle -->
-  <polygon points="101.0,0.0 221.0,0.0 245.11698631750795,24.116986317507966 125.11698631750797,24.116986317507966" style="fill:#ECB172A0;stroke-width:0"/>
-
-  <!-- Horizontal lines -->
-  <line x1="125" y1="24" x2="245" y2="24" style="stroke-width:2" />
-  <line x1="125" y1="49" x2="245" y2="49" style="stroke-width:2" />
-
-  <!-- Vertical lines -->
-  <line x1="125" y1="24" x2="125" y2="49" style="stroke-width:2" />
-  <line x1="125" y1="24" x2="125" y2="49" />
-  <line x1="245" y1="24" x2="245" y2="49" style="stroke-width:2" />
-
-  <!-- Colored Rectangle -->
-  <polygon points="125.11698631750797,24.116986317507966 245.11698631750795,24.116986317507966 245.11698631750795,49.52960283209045 125.11698631750797,49.52960283209045" style="fill:#ECB172A0;stroke-width:0"/>
-
-  <!-- Text -->
-  <text x="185.116986" y="69.529603" font-size="1.0rem" font-weight="100" text-anchor="middle" >395</text>
-  <text x="265.116986" y="36.823295" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,265.116986,36.823295)">2</text>
-  <text x="103.058493" y="57.471110" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,103.058493,57.471110)">63</text>
-</svg>
-        </td>
-    </tr>
-</table></div></div></li><li class='xr-section-item'><input id='section-af54ef5f-8d0b-41bf-b2d2-9340b8e31c5e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-af54ef5f-8d0b-41bf-b2d2-9340b8e31c5e' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat_aux_grid</span></div><div class='xr-var-dims'>(lat_aux_grid)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-79.49 -78.95 -78.42 ... 89.47 90.0</div><input id='attrs-f1f4d56a-75d8-49ad-931a-4a6cc1f6a59c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f1f4d56a-75d8-49ad-931a-4a6cc1f6a59c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cdc609ff-18fa-4f7d-9d6e-dc19be18d43c' class='xr-var-data-in' type='checkbox'><label for='data-cdc609ff-18fa-4f7d-9d6e-dc19be18d43c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude grid for transport diagnostics</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>valid_min :</span></dt><dd>-79.48815</dd><dt><span>valid_max :</span></dt><dd>90.0</dd></dl></div><div class='xr-var-data'><pre>array([-79.48815 , -78.952896, -78.418655, ...,  88.948814,  89.47441 ,
-        90.      ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>0060-01-15 00:00:00 ... 0060-12-...</div><input id='attrs-44a7bad2-a507-48db-be61-4346e60574b5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-44a7bad2-a507-48db-be61-4346e60574b5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bd85026c-bab2-46c0-897b-3072e5fa9ee0' class='xr-var-data-in' type='checkbox'><label for='data-bd85026c-bab2-46c0-897b-3072e5fa9ee0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(60, 1, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 2, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 3, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 4, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 5, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 6, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 7, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 8, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 9, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 10, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 11, 15, 0, 0, 0, 0, has_year_zero=True),
-       cftime.DatetimeNoLeap(60, 12, 15, 0, 0, 0, 0, has_year_zero=True)],
-      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>moc_z</span></div><div class='xr-var-dims'>(moc_z)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 1e+03 2e+03 ... 5.75e+05 6e+05</div><input id='attrs-727f7150-fd93-4947-b7a8-084b4fa02507' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-727f7150-fd93-4947-b7a8-084b4fa02507' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5e6e76e6-646a-4a60-8643-32c08c6c21ce' class='xr-var-data-in' type='checkbox'><label for='data-5e6e76e6-646a-4a60-8643-32c08c6c21ce' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>depth from surface to top of layer</dd><dt><span>units :</span></dt><dd>centimeters</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>valid_max :</span></dt><dd>574999.06</dd></dl></div><div class='xr-var-data'><pre>array([     0.   ,   1000.   ,   2000.   ,   3000.   ,   4000.   ,   5000.   ,
-         6000.   ,   7000.   ,   8000.   ,   9000.   ,  10000.   ,  11000.   ,
-        12000.   ,  13000.   ,  14000.   ,  15000.   ,  16000.   ,  17019.682,
-        18076.129,  19182.125,  20349.932,  21592.344,  22923.312,  24358.453,
-        25915.58 ,  27615.26 ,  29481.47 ,  31542.373,  33831.227,  36387.473,
-        39258.047,  42498.887,  46176.656,  50370.688,  55174.91 ,  60699.668,
-        67072.86 ,  74439.805,  82960.695,  92804.35 , 104136.82 , 117104.016,
-       131809.36 , 148290.08 , 166499.2  , 186301.44 , 207487.39 , 229803.9  ,
-       252990.4  , 276809.84 , 301067.06 , 325613.84 , 350344.88 , 375189.2  ,
-       400101.16 , 425052.47 , 450026.06 , 475012.   , 500004.7  , 525000.94 ,
-       549999.06 , 574999.06 , 599999.06 ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>transport_regions</span></div><div class='xr-var-dims'>(transport_reg)</div><div class='xr-var-dtype'>|S256</div><div class='xr-var-preview xr-preview'>b&#x27;Global Ocean - Marginal Seas&#x27; ...</div><input id='attrs-c9a68f43-7ce6-49e9-8a91-352bee634d94' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c9a68f43-7ce6-49e9-8a91-352bee634d94' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-766b52f5-0801-471c-9285-8893cfd3784b' class='xr-var-data-in' type='checkbox'><label for='data-766b52f5-0801-471c-9285-8893cfd3784b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>regions for all transport diagnostics</dd><dt><span>units :</span></dt><dd></dd></dl></div><div class='xr-var-data'><pre>array([b&#x27;Global Ocean - Marginal Seas&#x27;,
-       b&#x27;Atlantic Ocean + Mediterranean Sea + Labrador Sea + GIN Sea + Arctic Ocean + Hudson Bay&#x27;],
-      dtype=&#x27;|S256&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-75b556d0-46d7-4c6d-8a61-d61cb5862597' class='xr-section-summary-in' type='checkbox'  checked><label for='section-75b556d0-46d7-4c6d-8a61-d61cb5862597' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Meridional Overturning Circulation</dd><dt><span>units :</span></dt><dd>Sv</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 <span class="n">MOC</span> <span class="o">=</span> <span class="n">MOC</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 10.6 s, sys: 567 ms, total: 11.1 s
-Wall time: 54.9 s
 </pre></div>
 </div>
 </div>
@@ -2066,11 +942,6 @@ Wall time: 54.9 s
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>809
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2087,12 +958,6 @@ Wall time: 54.9 s
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 <span class="n">mocatl_s</span> <span class="o">=</span> <span class="n">mocatl_s</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 12.9 s, sys: 2.26 s, total: 15.2 s
-Wall time: 46.1 s
 </pre></div>
 </div>
 </div>
