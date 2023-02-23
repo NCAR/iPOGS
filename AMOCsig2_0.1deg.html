@@ -510,14 +510,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/dask_jobqueue/pbs.py:82: FutureWarning: project has been renamed to account as this kwarg was used wit -A option. You are still using it (please also check config files). If you did not set account yet, project will be respected for now, but it will be removed in a future release. If you already set account, project is ignored and you can remove it.
-  warnings.warn(warn, FutureWarning)
-/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/node.py:179: UserWarning: Port 8787 is already in use.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/node.py:179: UserWarning: Port 8787 is already in use.
 Perhaps you already have a cluster running?
-Hosting the HTTP server on port 45956 instead
+Hosting the HTTP server on port 42266 instead
   warnings.warn(
-/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/dask_jobqueue/pbs.py:82: FutureWarning: project has been renamed to account as this kwarg was used wit -A option. You are still using it (please also check config files). If you did not set account yet, project will be respected for now, but it will be removed in a future release. If you already set account, project is ignored and you can remove it.
-  warnings.warn(warn, FutureWarning)
 </pre></div>
 </div>
 </div>
@@ -534,11 +530,11 @@ Hosting the HTTP server on port 45956 instead
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">PBSCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">ff263e02</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">b68ca8e2</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
-                    <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/45956/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/45956/status</a>
+                    <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/42266/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/42266/status</a>
                 </td>
                 <td style="text-align: left;">
                     <strong>Workers:</strong> 0
@@ -565,11 +561,11 @@ Hosting the HTTP server on port 45956 instead
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-f6b189d7-1296-4306-b35b-b1b3b2a8ce79</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-4f5a3b2f-5230-40fa-b6ea-870fd1beaa1b</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://10.12.206.48:46268
+                        <strong>Comm:</strong> tcp://10.12.206.48:35237
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 0
@@ -577,7 +573,7 @@ Hosting the HTTP server on port 45956 instead
                 </tr>
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/45956/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/45956/status</a>
+                        <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/42266/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/42266/status</a>
                     </td>
                     <td style="text-align: left;">
                         <strong>Total threads:</strong> 0
@@ -643,12 +639,12 @@ Hosting the HTTP server on port 45956 instead
     <span class="c1">#d0 = d0.groupby(&#39;time.year&#39;).mean(&#39;time&#39;).rename({&#39;year&#39;:&#39;time&#39;})</span>
     <span class="k">return</span> <span class="n">d0</span>
 
-<span class="c1"># def preprocessor_temp(ds0):</span>
-<span class="c1">#     keepvars = [&#39;TEMP&#39;] #,&#39;VVEL&#39;,&#39;TEMP&#39;,&#39;SALT&#39;]</span>
-<span class="c1">#     d0 = ds0[keepvars]</span>
-<span class="c1">#     d0 = time_set_midmonth(d0,&#39;time&#39;)</span>
-<span class="c1">#     #d0 = d0.groupby(&#39;time.year&#39;).mean(&#39;time&#39;).rename({&#39;year&#39;:&#39;time&#39;})</span>
-<span class="c1">#     return d0</span>
+<span class="k">def</span> <span class="nf">preprocessor_temp</span><span class="p">(</span><span class="n">ds0</span><span class="p">):</span>
+    <span class="n">keepvars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span> <span class="c1">#,&#39;VVEL&#39;,&#39;TEMP&#39;,&#39;SALT&#39;]</span>
+    <span class="n">d0</span> <span class="o">=</span> <span class="n">ds0</span><span class="p">[</span><span class="n">keepvars</span><span class="p">]</span>
+    <span class="n">d0</span> <span class="o">=</span> <span class="n">time_set_midmonth</span><span class="p">(</span><span class="n">d0</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+    <span class="c1">#d0 = d0.groupby(&#39;time.year&#39;).mean(&#39;time&#39;).rename({&#39;year&#39;:&#39;time&#39;})</span>
+    <span class="k">return</span> <span class="n">d0</span>
 
 <span class="k">def</span> <span class="nf">preprocessor_salt</span><span class="p">(</span><span class="n">ds0</span><span class="p">):</span>
     <span class="n">keepvars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SALT&#39;</span><span class="p">]</span> <span class="c1">#,&#39;VVEL&#39;,&#39;TEMP&#39;,&#39;SALT&#39;]</span>
@@ -681,28 +677,22 @@ Hosting the HTTP server on port 45956 instead
                        <span class="n">coords</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span><span class="n">compat</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span><span class="n">data_vars</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>
                        <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># fin_temp = fdir + &#39;*TEMP*.nc&#39;</span>
-<span class="c1"># ds_temp = xr.open_mfdataset(fin_temp,combine=&#39;by_coords&#39;,</span>
-<span class="c1">#                        preprocess=preprocessor_temp, chunks={&#39;time&#39;:1,&#39;nlat&#39;:200},</span>
-<span class="c1">#                        coords=&quot;minimal&quot;,compat=&quot;override&quot;,data_vars=&quot;minimal&quot;,</span>
-<span class="c1">#                        parallel=True)</span>
+<span class="n">fin_temp</span> <span class="o">=</span> <span class="n">fdir</span> <span class="o">+</span> <span class="s1">&#39;*.TEMP.*.nc&#39;</span>
+<span class="n">ds_temp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">fin_temp</span><span class="p">,</span><span class="n">combine</span><span class="o">=</span><span class="s1">&#39;by_coords&#39;</span><span class="p">,</span>
+                       <span class="n">preprocess</span><span class="o">=</span><span class="n">preprocessor_temp</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;nlat&#39;</span><span class="p">:</span><span class="mi">200</span><span class="p">},</span>
+                       <span class="n">coords</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span><span class="n">compat</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span><span class="n">data_vars</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>
+                       <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># fin_salt = fdir + &#39;*SALT*.nc&#39;</span>
-<span class="c1"># ds_salt = xr.open_mfdataset(fin_salt,combine=&#39;by_coords&#39;,</span>
-<span class="c1">#                        preprocess=preprocessor_salt,chunks={&#39;time&#39;:1,&#39;nlat&#39;:200},</span>
-<span class="c1">#                        coords=&quot;minimal&quot;,compat=&quot;override&quot;,data_vars=&quot;minimal&quot;,</span>
-<span class="c1">#                        parallel=True)</span>
+<span class="n">fin_salt</span> <span class="o">=</span> <span class="n">fdir</span> <span class="o">+</span> <span class="s1">&#39;*.SALT.*.nc&#39;</span>
+<span class="n">ds_salt</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">fin_salt</span><span class="p">,</span><span class="n">combine</span><span class="o">=</span><span class="s1">&#39;by_coords&#39;</span><span class="p">,</span>
+                       <span class="n">preprocess</span><span class="o">=</span><span class="n">preprocessor_salt</span><span class="p">,</span><span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;nlat&#39;</span><span class="p">:</span><span class="mi">200</span><span class="p">},</span>
+                       <span class="n">coords</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span><span class="n">compat</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span><span class="n">data_vars</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>
+                       <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">ds_grid</span> <span class="o">=</span> <span class="n">pop_tools</span><span class="o">.</span><span class="n">get_grid</span><span class="p">(</span><span class="s1">&#39;POP_tx0.1v3&#39;</span><span class="p">)</span>
 
 <span class="n">fmoc</span> <span class="o">=</span> <span class="s1">&#39;/glade/u/home/yeager/analysis/python/POP_MOC/moc_template.nc&#39;</span>
 <span class="n">ds_moctemp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">fmoc</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.37 s, sys: 676 ms, total: 6.04 s
-Wall time: 8.56 s
 </pre></div>
 </div>
 </div>
@@ -725,18 +715,6 @@ Wall time: 8.56 s
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get model T &amp; S</span>
 <span class="n">salt</span> <span class="o">=</span> <span class="n">ds_salt</span><span class="p">[</span><span class="s1">&#39;SALT&#39;</span><span class="p">]</span>
 <span class="n">temp</span> <span class="o">=</span> <span class="n">ds_temp</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Get model T &amp; S</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">salt</span> <span class="o">=</span> <span class="n">ds_salt</span><span class="p">[</span><span class="s1">&#39;SALT&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">ds_temp</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;ds_salt&#39; is not defined
 </pre></div>
 </div>
 </div>
