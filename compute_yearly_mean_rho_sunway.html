@@ -435,7 +435,7 @@ title="Print to PDF"
 <span class="c1">#from geocat.viz import util as gvutil</span>
 <span class="c1">#import util</span>
 <span class="kn">import</span> <span class="nn">cartopy</span>
-<span class="kn">import</span> <span class="nn">xesmf</span> <span class="k">as</span> <span class="nn">xe</span>
+<span class="c1">#import xesmf as xe</span>
 <span class="c1">#import xskillscore as xs</span>
 <span class="c1">#cartopy.config[&#39;pre_existing_data_dir&#39;]=&#39;/ihesp/shared/cartopy_features&#39;</span>
 <span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
@@ -512,6 +512,14 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/site-packages/distributed/node.py:161: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 45178 instead
+  f&quot;Port {expected} is already in use.\n&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -525,11 +533,11 @@ title="Print to PDF"
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">PBSCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">09684f12</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">6e505752</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
-                    <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/8787/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/8787/status</a>
+                    <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/45178/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/45178/status</a>
                 </td>
                 <td style="text-align: left;">
                     <strong>Workers:</strong> 0
@@ -556,11 +564,11 @@ title="Print to PDF"
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-fb33df40-cbb8-42a2-8561-2bb642ec8188</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-aa29ddda-b8ff-4978-ac9b-3b030b124d47</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://10.12.206.11:42641
+                        <strong>Comm:</strong> tcp://10.12.206.5:38722
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 0
@@ -568,7 +576,7 @@ title="Print to PDF"
                 </tr>
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/8787/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/8787/status</a>
+                        <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/45178/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/45178/status</a>
                     </td>
                     <td style="text-align: left;">
                         <strong>Total threads:</strong> 0
@@ -626,8 +634,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 30.3 ms, sys: 16.5 ms, total: 46.8 ms
-Wall time: 342 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 22.6 ms, sys: 8.83 ms, total: 31.4 ms
+Wall time: 168 ms
 </pre></div>
 </div>
 </div>
@@ -659,7 +667,7 @@ Wall time: 342 ms
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">72</span><span class="p">,</span><span class="n">nf</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nf</span><span class="p">):</span>
 
     <span class="n">dst</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">temp_files</span><span class="p">[</span><span class="n">n</span><span class="p">],</span>
                         <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># use dask to read in parallel</span>
@@ -702,7 +710,7 @@ Wall time: 342 ms
     <span class="c1">#Write to netcdf</span>
     <span class="n">dso</span> <span class="o">=</span> <span class="n">rho</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;RHO&#39;</span><span class="p">)</span>
     
-    <span class="n">outdir</span> <span class="o">=</span> <span class="s1">&#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/year_1/&#39;</span>
+    <span class="n">outdir</span> <span class="o">=</span> <span class="n">outdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">temp_files</span><span class="p">[</span><span class="n">n</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;month_1&#39;</span><span class="p">,</span><span class="s1">&#39;year_1&#39;</span><span class="p">)</span>
     <span class="n">fout</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">temp_files</span><span class="p">[</span><span class="n">n</span><span class="p">])[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
     <span class="n">fout</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;RHO&#39;</span><span class="p">)</span>
     <span class="n">fout</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:04d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dso</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
@@ -714,60 +722,73 @@ Wall time: 342 ms
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">72</span><span class="p">,</span><span class="n">nf</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">temp_files</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.207801-207812.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.207901-207912.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.208001-208012.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.208101-208112.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.208201-208212.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.208301-208312.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.208401-208412.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.208501-208512.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.208601-208612.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.208701-208712.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.208801-208812.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.208901-208912.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.209001-209012.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.209101-209112.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.209201-209212.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.209301-209312.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.209401-209412.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.209501-209512.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.209601-209612.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.209701-209712.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.209801-209812.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.209901-209912.nc
-/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.TEMP.210001-210012.nc
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Task exception was never retrieved
-future: &lt;Task finished coro=&lt;_wrap_awaitable() done, defined at /glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/asyncio/tasks.py:623&gt; exception=RuntimeError(&#39;Command exited with non-zero exit code.\nExit code: -2\nCommand:\nqsub /glade/scratch/fredc/tmpbm5vnwys.sh\nstdout:\n\nstderr:\n\n&#39;)&gt;
-Traceback (most recent call last):
-  File &quot;/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/asyncio/tasks.py&quot;, line 630, in _wrap_awaitable
-    return (yield from awaitable.__await__())
-  File &quot;/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/site-packages/distributed/deploy/spec.py&quot;, line 67, in _
-    await self.start()
-  File &quot;/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/site-packages/dask_jobqueue/core.py&quot;, line 325, in start
-    out = await self._submit_job(fn)
-  File &quot;/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/site-packages/dask_jobqueue/core.py&quot;, line 308, in _submit_job
-    return self._call(shlex.split(self.submit_command) + [script_filename])
-  File &quot;/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/site-packages/dask_jobqueue/core.py&quot;, line 408, in _call
-    &quot;stderr:\n{}\n&quot;.format(proc.returncode, cmd_str, out, err)
-RuntimeError: Command exited with non-zero exit code.
-Exit code: -2
-Command:
-qsub /glade/scratch/fredc/tmpbm5vnwys.sh
-stdout:
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">glade</span><span class="o">/</span><span class="n">scratch</span><span class="o">/</span><span class="n">fredc</span><span class="o">/</span><span class="n">ipykernel_301704</span><span class="o">/</span><span class="mf">97993256.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>                         <span class="n">compat</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>                         <span class="c1">#preprocess=preprocess, # run this function on each dataset first before combining</span>
+<span class="ne">---&gt; </span><span class="mi">11</span>                         <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;nlat&quot;</span><span class="p">:</span> <span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="s2">&quot;nlon&quot;</span><span class="p">:</span> <span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="s2">&quot;z_t&quot;</span><span class="p">:</span><span class="s2">&quot;auto&quot;</span><span class="p">},</span> <span class="c1"># choose simple</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>                        <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">dst</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dst</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="c1">#middle of the month</span>
 
-stderr:
+<span class="nn">/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/site-packages/xarray/backends/api.py</span> in <span class="ni">open_mfdataset</span><span class="nt">(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">919</span>         <span class="c1"># calling compute here will return the datasets/file_objs lists,</span>
+<span class="g g-Whitespace">    </span><span class="mi">920</span>         <span class="c1"># the underlying datasets will still be stored as dask arrays</span>
+<span class="ne">--&gt; </span><span class="mi">921</span>         <span class="n">datasets</span><span class="p">,</span> <span class="n">closers</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="n">closers</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">922</span> 
+<span class="g g-Whitespace">    </span><span class="mi">923</span>     <span class="c1"># Combine all datasets, closing them in case of a ValueError</span>
+
+<span class="nn">/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/site-packages/dask/base.py</span> in <span class="ni">compute</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">566</span>         <span class="n">postcomputes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">__dask_postcompute__</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span> 
+<span class="ne">--&gt; </span><span class="mi">568</span>     <span class="n">results</span> <span class="o">=</span> <span class="n">schedule</span><span class="p">(</span><span class="n">dsk</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">    569     return repack([f(r, *a) for r, (f, a)</span> in <span class="ni">zip</span><span class="nt">(results, postcomputes)])</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span> 
+
+<span class="nn">/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/site-packages/distributed/client.py</span> in <span class="ni">get</span><span class="nt">(self, dsk, keys, workers, allow_other_workers, resources, sync, asynchronous, direct, retries, priority, fifo_timeout, actors, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2664</span>                     <span class="n">should_rejoin</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">   </span><span class="mi">2665</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2666</span>                 <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">packed</span><span class="p">,</span> <span class="n">asynchronous</span><span class="o">=</span><span class="n">asynchronous</span><span class="p">,</span> <span class="n">direct</span><span class="o">=</span><span class="n">direct</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2667</span>             <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2668</span>                 <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">futures</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+
+<span class="nn">/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/site-packages/distributed/client.py</span> in <span class="ni">gather</span><span class="nt">(self, futures, errors, direct, asynchronous)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1947</span>                 <span class="n">direct</span><span class="o">=</span><span class="n">direct</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1948</span>                 <span class="n">local_worker</span><span class="o">=</span><span class="n">local_worker</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">1949</span>                 <span class="n">asynchronous</span><span class="o">=</span><span class="n">asynchronous</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1950</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1951</span> 
+
+<span class="nn">/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/site-packages/distributed/client.py</span> in <span class="ni">sync</span><span class="nt">(self, func, asynchronous, callback_timeout, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">839</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">840</span>             <span class="k">return</span> <span class="n">sync</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">841</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">loop</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">callback_timeout</span><span class="o">=</span><span class="n">callback_timeout</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">842</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">843</span> 
+
+<span class="nn">/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/site-packages/distributed/utils.py</span> in <span class="ni">sync</span><span class="nt">(loop, func, callback_timeout, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span>         <span class="k">while</span> <span class="ow">not</span> <span class="n">e</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">323</span>             <span class="n">e</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span>     <span class="k">if</span> <span class="n">error</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span>         <span class="n">typ</span><span class="p">,</span> <span class="n">exc</span><span class="p">,</span> <span class="n">tb</span> <span class="o">=</span> <span class="n">error</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nn">/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/threading.py</span> in <span class="ni">wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">550</span>             <span class="n">signaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flag</span>
+<span class="g g-Whitespace">    </span><span class="mi">551</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">signaled</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">552</span>                 <span class="n">signaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cond</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">553</span>             <span class="k">return</span> <span class="n">signaled</span>
+<span class="g g-Whitespace">    </span><span class="mi">554</span> 
+
+<span class="nn">/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/threading.py</span> in <span class="ni">wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">298</span>             <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>                 <span class="k">if</span> <span class="n">timeout</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">300</span>                     <span class="n">gotit</span> <span class="o">=</span> <span class="n">waiter</span><span class="o">.</span><span class="n">acquire</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span>                     <span class="n">gotit</span> <span class="o">=</span> <span class="n">waiter</span><span class="o">.</span><span class="n">acquire</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
