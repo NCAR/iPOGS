@@ -497,10 +497,10 @@ title="Print to PDF"
     <span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
     <span class="n">cluster</span> <span class="o">=</span> <span class="n">PBSCluster</span><span class="p">(</span>
         <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="n">memory</span><span class="o">=</span><span class="s1">&#39;20GB&#39;</span><span class="p">,</span>
+        <span class="n">memory</span><span class="o">=</span><span class="s1">&#39;20GiB&#39;</span><span class="p">,</span>
         <span class="n">processes</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">queue</span><span class="o">=</span><span class="s1">&#39;casper&#39;</span><span class="p">,</span>
-        <span class="n">resource_spec</span><span class="o">=</span><span class="s1">&#39;select=1:ncpus=1:mem=10GB&#39;</span><span class="p">,</span>
+        <span class="n">resource_spec</span><span class="o">=</span><span class="s1">&#39;select=1:ncpus=1:mem=20GB&#39;</span><span class="p">,</span> 
         <span class="n">account</span><span class="o">=</span><span class="s1">&#39;P93300313&#39;</span><span class="p">,</span>
         <span class="n">walltime</span><span class="o">=</span><span class="s1">&#39;06:00:00&#39;</span><span class="p">,</span>
         <span class="n">interface</span><span class="o">=</span><span class="s1">&#39;ib0&#39;</span><span class="p">,)</span>
@@ -515,14 +515,14 @@ title="Print to PDF"
     <span class="k">return</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">client</span>
 
 <span class="n">cluster</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">get_ClusterClient</span><span class="p">()</span>
-<span class="n">cluster</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> 
+<span class="n">cluster</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/u/home/tking/.conda/envs/ipogs_from_steve/lib/python3.10/site-packages/distributed/node.py:183: UserWarning: Port 8787 is already in use.
 Perhaps you already have a cluster running?
-Hosting the HTTP server on port 36542 instead
+Hosting the HTTP server on port 42546 instead
   warnings.warn(
 </pre></div>
 </div>
@@ -539,7 +539,7 @@ Hosting the HTTP server on port 36542 instead
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-b57a3588-bc75-11ed-81f9-3cecef1b12de</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-e9fb0fee-bd39-11ed-96a3-3cecef1b11de</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -552,7 +552,7 @@ Hosting the HTTP server on port 36542 instead
         
             <tr>
                 <td style="text-align: left;">
-                    <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36542/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36542/status</a>
+                    <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/42546/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/42546/status</a>
                 </td>
                 <td style="text-align: left;"></td>
             </tr>
@@ -561,7 +561,7 @@ Hosting the HTTP server on port 36542 instead
         </table>
 
         
-            <button style="margin-bottom: 12px;" data-commandlinker-command="dask:populate-and-launch-layout" data-commandlinker-args='{"url": "https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36542/status" }'>
+            <button style="margin-bottom: 12px;" data-commandlinker-command="dask:populate-and-launch-layout" data-commandlinker-args='{"url": "https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/42546/status" }'>
                 Launch dashboard in JupyterLab
             </button>
         
@@ -574,22 +574,22 @@ Hosting the HTTP server on port 36542 instead
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">PBSCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">73139a9c</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">491271cf</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
-                    <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36542/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36542/status</a>
+                    <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/42546/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/42546/status</a>
                 </td>
                 <td style="text-align: left;">
-                    <strong>Workers:</strong> 30
+                    <strong>Workers:</strong> 0
                 </td>
             </tr>
             <tr>
                 <td style="text-align: left;">
-                    <strong>Total threads:</strong> 30
+                    <strong>Total threads:</strong> 0
                 </td>
                 <td style="text-align: left;">
-                    <strong>Total memory:</strong> 300.00 GiB
+                    <strong>Total memory:</strong> 0 B
                 </td>
             </tr>
             
@@ -605,30 +605,30 @@ Hosting the HTTP server on port 36542 instead
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-a8ba30bf-f55e-4f32-9d3a-3751edf7746b</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-54e4799a-4a65-43b9-b403-fe4fe2d108c9</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://10.12.206.48:33155
+                        <strong>Comm:</strong> tcp://10.12.206.51:38627
                     </td>
                     <td style="text-align: left;">
-                        <strong>Workers:</strong> 30
-                    </td>
-                </tr>
-                <tr>
-                    <td style="text-align: left;">
-                        <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36542/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36542/status</a>
-                    </td>
-                    <td style="text-align: left;">
-                        <strong>Total threads:</strong> 30
+                        <strong>Workers:</strong> 0
                     </td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Started:</strong> 2 minutes ago
+                        <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/42546/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/42546/status</a>
                     </td>
                     <td style="text-align: left;">
-                        <strong>Total memory:</strong> 300.00 GiB
+                        <strong>Total threads:</strong> 0
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">
+                        <strong>Started:</strong> Just now
+                    </td>
+                    <td style="text-align: left;">
+                        <strong>Total memory:</strong> 0 B
                     </td>
                 </tr>
             </table>
@@ -640,1356 +640,6 @@ Hosting the HTTP server on port 36542 instead
             <h3 style="display: inline;">Workers</h3>
         </summary>
 
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-0</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.23:44101
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/38863/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/38863/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.23:40664
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-0idexp8a
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-1</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.13:35679
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/41775/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/41775/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.13:41015
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-couqowg1
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-10</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.23:41747
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/32946/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/32946/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.23:36972
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-3atjzf1g
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-11</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.39:37232
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/38712/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/38712/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.39:33176
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-zc7cvcm3
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-12</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.8:40847
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/35369/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/35369/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.8:37825
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-xj1hvbi7
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-13</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.12:34636
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/40746/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/40746/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.12:39715
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-ow019vc5
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-14</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.56:38438
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/41024/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/41024/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.56:39099
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-0zmi3x0r
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-15</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.23:38600
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/44467/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/44467/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.23:38770
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-4g8znz08
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-16</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.23:44264
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36362/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36362/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.23:33614
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-ux9qzwtd
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-17</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.34:39799
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/35564/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/35564/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.34:35544
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-mmzvebgk
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-18</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.57:38229
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/41372/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/41372/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.57:37944
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-tl69gi05
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-19</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.23:43505
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/41817/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/41817/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.23:41710
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-osudq2ca
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-2</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.40:34670
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/41150/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/41150/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.40:33317
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-ovjc1es8
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-20</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.23:41318
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/46711/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/46711/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.23:40729
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-atij0wmr
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-21</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.54:37431
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36809/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36809/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.54:33584
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-wj87lrzw
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-22</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.55:41232
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/40018/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/40018/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.55:33651
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-j7v_ckp_
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-23</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.23:44988
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/39967/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/39967/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.23:45486
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-p_du6q9i
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-24</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.53:39808
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36411/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36411/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.53:38853
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-rfgzk_bj
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-25</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.23:43624
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/39199/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/39199/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.23:42457
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-l24zyv2a
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-26</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.32:34531
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36240/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/36240/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.32:39308
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-qoc1ek6x
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-27</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.63:34156
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/44998/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/44998/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.63:46077
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-7ufjlr_m
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-28</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.9:36722
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/37860/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/37860/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.9:33887
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-ebdgxvb2
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-29</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.29:32910
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/35207/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/35207/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.29:42513
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-ux3vpz76
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-3</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.29:46866
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/42455/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/42455/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.29:41044
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-iakdm6t9
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-4</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.59:38825
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/44242/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/44242/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.59:41036
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-0_0znaje
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-5</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.23:35216
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/33555/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/33555/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.23:43534
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-wmkvwoq3
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-6</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.36:40476
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/45166/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/45166/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.36:41273
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-zo7rnu94
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-7</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.29:34856
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/46810/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/46810/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.29:42863
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-5_2cxj3p
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-8</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.3:42830
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/44685/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/44685/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.3:35771
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-85zyt9cz
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: PBSCluster-9</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://10.12.206.23:38363
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/34128/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/34128/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 10.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://10.12.206.23:39373
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/tking/dask-worker-space/worker-00_gwsmi
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
         
 
     </details>
@@ -2037,7 +687,7 @@ Hosting the HTTP server on port 36542 instead
 <span class="c1">#fin = fdir + &#39;b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.31.003.pop.h.VVEL.200601-210012.nc&#39;</span>
 <span class="c1">#fin = fdir + &#39;b.e13.BRCP45C5.ne120_t12.cesm-ihesp-hires1.0.42.003.pop.h.VVEL.200601-210012.nc&#39;</span>
 <span class="n">fin</span> <span class="o">=</span> <span class="n">fdir</span> <span class="o">+</span> <span class="s1">&#39;b.e13.BRCP26C5.ne120_t12.cesm-ihesp-hires1.0.42.003.pop.h.VVEL.200601-210012.nc&#39;</span>
-<span class="n">dsV</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">fin</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;nlon&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">})</span>
+<span class="n">dsV</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">fin</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;nlon&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">})</span>  <span class="c1"># TODO: try chunking by nlat</span>
 <span class="n">dsV</span> <span class="o">=</span> <span class="n">time_set_midmonth</span><span class="p">(</span><span class="n">dsV</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
 
 <span class="c1">#fin = fdir + &#39;b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.30.002.pop.h.WVEL.200601-210012.nc&#39;</span>
@@ -2138,8 +788,8 @@ Hosting the HTTP server on port 36542 instead
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>got dz
 got kmt
 got dzt dzu
-CPU times: user 1min, sys: 4min 29s, total: 5min 29s
-Wall time: 12min 28s
+CPU times: user 11.8 s, sys: 11.2 s, total: 23 s
+Wall time: 24.9 s
 </pre></div>
 </div>
 </div>
@@ -2151,16 +801,10 @@ Wall time: 12min 28s
 <span class="n">refdep</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">refz</span><span class="p">)</span>
 
 <span class="c1"># Grid Metrics</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;computing grid metrics at </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
 <span class="n">dxu</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="p">[</span><span class="s1">&#39;DXU&#39;</span><span class="p">]</span>
 <span class="n">dyu</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="p">[</span><span class="s1">&#39;DYU&#39;</span><span class="p">]</span>
 <span class="n">dxt</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="p">[</span><span class="s1">&#39;DXT&#39;</span><span class="p">]</span>
 <span class="n">dyt</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="p">[</span><span class="s1">&#39;DYT&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>computing grid metrics at Mon Mar  6 16:37:03 2023
 </pre></div>
 </div>
 </div>
@@ -2174,8 +818,8 @@ Wall time: 12min 28s
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ystart=[2006,2010,2020,2030,2040,2050,2060,2070,2080,2090,2100]</span>
 <span class="c1"># yend=[2009,2019,2029,2039,2049,2059,2069,2079,2089,2099,2100]</span>
 
-<span class="n">ystart</span><span class="o">=</span><span class="p">[</span><span class="mi">2006</span><span class="p">]</span>
-<span class="n">yend</span><span class="o">=</span><span class="p">[</span><span class="mi">2006</span><span class="p">]</span>
+<span class="n">ystart</span><span class="o">=</span><span class="p">[</span><span class="mi">2030</span><span class="p">]</span>
+<span class="n">yend</span><span class="o">=</span><span class="p">[</span><span class="mi">2039</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2196,75 +840,38 @@ Wall time: 12min 28s
     <span class="n">sigma2_T</span> <span class="o">=</span> <span class="n">pop_tools</span><span class="o">.</span><span class="n">eos</span><span class="p">(</span><span class="n">salt</span><span class="o">=</span><span class="n">salt</span><span class="p">,</span><span class="n">temp</span><span class="o">=</span><span class="n">temp</span><span class="p">,</span><span class="n">depth</span><span class="o">=</span><span class="n">refdep</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1000</span>
     <span class="n">sigma2_T</span> <span class="o">=</span> <span class="n">sigma2_T</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">({</span><span class="s1">&#39;long_name&#39;</span><span class="p">:</span><span class="s1">&#39;Sigma referenced to </span><span class="si">{}</span><span class="s1">m&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">refz</span><span class="p">),</span><span class="s1">&#39;units&#39;</span><span class="p">:</span><span class="s1">&#39;kg/m^3&#39;</span><span class="p">})</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;calculated sigma2_T: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sigma2_T </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sigma2_T</span><span class="p">))</span>
-    
+
     <span class="c1"># Define target sigma-2 vertical grid. Use a predefined target grid, or create your own!</span>
     <span class="n">sigma_mid</span><span class="p">,</span><span class="n">sigma_edge</span> <span class="o">=</span> <span class="n">popmoc</span><span class="o">.</span><span class="n">sigma2_grid_86L</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sigma_mid </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sigma_mid</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sigma_edge </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sigma_edge</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sigma_mid and edge were calculated&#39;</span><span class="p">)</span>
 
-    <span class="c1"># Compute Isopycnal Layer Thickness (Can skip if not needed)</span>
-    <span class="c1"># Here, test histogram by counting cells in each density bin. Vertical sum should be same as KMT.</span>
-    <span class="n">iso_count</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span><span class="n">sigma2_T</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="n">sigma_edge</span><span class="o">.</span><span class="n">values</span><span class="p">],</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;z_t&#39;</span><span class="p">],</span><span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">iso_count</span> <span class="o">=</span> <span class="n">iso_count</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;density_bin&#39;</span><span class="p">:</span><span class="s1">&#39;sigma&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">({</span><span class="s1">&#39;sigma&#39;</span><span class="p">:</span><span class="n">sigma_mid</span><span class="p">})</span>
-
-    <span class="c1"># Use histogram to compute layer thickness. Vertical sum should be same as HT.</span>
-    <span class="n">iso_thick</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span><span class="n">sigma2_T</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="n">sigma_edge</span><span class="o">.</span><span class="n">values</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="n">dzt</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;z_t&#39;</span><span class="p">],</span><span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">iso_thick</span> <span class="o">=</span> <span class="n">iso_thick</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;density_bin&#39;</span><span class="p">:</span><span class="s1">&#39;sigma&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">({</span><span class="s1">&#39;sigma&#39;</span><span class="p">:</span><span class="n">sigma_mid</span><span class="p">})</span>
-    <span class="n">iso_thick</span> <span class="o">=</span> <span class="n">iso_thick</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;iso_thick&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">({</span><span class="s1">&#39;units&#39;</span><span class="p">:</span><span class="s1">&#39;m&#39;</span><span class="p">,</span>
-                                                            <span class="s1">&#39;long_name&#39;</span><span class="p">:</span><span class="s1">&#39;Isopycnal Layer Thickness&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;sigma&#39;</span><span class="p">:</span>
-                                                                                                              <span class="s1">&#39;sigma_mid&#39;</span><span class="p">})</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;iso_thick </span><span class="si">{}</span><span class="s1"> at </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(),</span> <span class="n">iso_thick</span><span class="p">))</span>
-    <span class="n">iso_thick</span> <span class="o">=</span> <span class="n">iso_thick</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;sigma_mid&#39;</span><span class="p">,</span><span class="s1">&#39;nlat&#39;</span><span class="p">,</span><span class="s1">&#39;nlon&#39;</span><span class="p">)</span>
-
-    <span class="c1"># Compute Isopycnal Layer Depth (Can skip if not needed)</span>
-    <span class="c1"># Cumulative sum of layer thickness yields depth of layer edges:</span>
-    <span class="n">iso_depth</span> <span class="o">=</span> <span class="n">iso_thick</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="s1">&#39;sigma_mid&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;iso_depth&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;sigma_mid&#39;</span><span class="p">:</span><span class="s1">&#39;sigma_bot&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">({</span><span class="s1">&#39;units&#39;</span><span class="p">:</span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="s1">&#39;long_name&#39;</span><span class="p">:</span><span class="s1">&#39;Isopycnal Layer Depth&#39;</span><span class="p">})</span>
-    <span class="n">sigma_bot</span> <span class="o">=</span> <span class="n">sigma_edge</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">sigma</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="kc">None</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;sigma&#39;</span><span class="p">:</span><span class="s1">&#39;sigma_bot&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">({</span><span class="s1">&#39;long_name&#39;</span><span class="p">:</span><span class="s1">&#39;Sigma2 at bottom of layer&#39;</span><span class="p">})</span>
-    <span class="n">iso_depth</span><span class="p">[</span><span class="s1">&#39;sigma_bot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sigma_bot</span>
-    <span class="n">iso_depth</span> <span class="o">=</span> <span class="n">iso_depth</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;sigma_bot&#39;</span><span class="p">,</span><span class="s1">&#39;nlat&#39;</span><span class="p">,</span><span class="s1">&#39;nlon&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;iso_depth </span><span class="si">{}</span><span class="s1"> at </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(),</span> <span class="n">iso_depth</span><span class="p">))</span>
-    
-    <span class="c1"># Compute Isopycnal Layer Horizontal Volume Flux</span>
-    
     <span class="c1"># Grid-oriented Volume FLuxes:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;generating grid-oriented volume fluxes at </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
     <span class="n">u_e</span> <span class="o">=</span> <span class="p">(</span><span class="n">u_e</span><span class="o">*</span><span class="n">dyu</span><span class="o">*</span><span class="n">dzu</span><span class="o">/</span><span class="mf">1.e4</span><span class="p">)</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">({</span><span class="s1">&#39;units&#39;</span><span class="p">:</span><span class="s1">&#39;m^3/s&#39;</span><span class="p">})</span>
     <span class="n">v_e</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_e</span><span class="o">*</span><span class="n">dxu</span><span class="o">*</span><span class="n">dzu</span><span class="o">/</span><span class="mf">1.e4</span><span class="p">)</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">({</span><span class="s1">&#39;units&#39;</span><span class="p">:</span><span class="s1">&#39;m^3/s&#39;</span><span class="p">})</span>
-    
+
     <span class="c1"># Convert u_e,v_e to C-grid fluxes</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;converting to c-grid fluxes at </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
     <span class="n">u</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">u_e</span><span class="o">+</span><span class="n">u_e</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">nlat</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
     <span class="n">v</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">v_e</span><span class="o">+</span><span class="n">v_e</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">nlon</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">roll_coords</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-    
+
     <span class="c1"># Volume fluxes in density-space. </span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;generating iso_flux at </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
     <span class="n">iso_uflux</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span><span class="n">sigma2_T</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="n">sigma_edge</span><span class="o">.</span><span class="n">values</span><span class="p">],</span><span class="n">weights</span><span class="o">=</span><span class="n">u</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;z_t&#39;</span><span class="p">],</span><span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">iso_uflux</span> <span class="o">=</span> <span class="n">iso_uflux</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;density_bin&#39;</span><span class="p">:</span><span class="s1">&#39;sigma&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">({</span><span class="s1">&#39;sigma&#39;</span><span class="p">:</span><span class="n">sigma_mid</span><span class="p">})</span>
     <span class="n">iso_vflux</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span><span class="n">sigma2_T</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="n">sigma_edge</span><span class="o">.</span><span class="n">values</span><span class="p">],</span><span class="n">weights</span><span class="o">=</span><span class="n">v</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;z_t&#39;</span><span class="p">],</span><span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">iso_vflux</span> <span class="o">=</span> <span class="n">iso_vflux</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;density_bin&#39;</span><span class="p">:</span><span class="s1">&#39;sigma&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">({</span><span class="s1">&#39;sigma&#39;</span><span class="p">:</span><span class="n">sigma_mid</span><span class="p">})</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;performing dask operations at </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
-    <span class="n">iso_uflux</span> <span class="o">=</span> <span class="n">iso_uflux</span><span class="o">.</span><span class="n">persist</span><span class="p">()</span>
-    <span class="n">daskout</span> <span class="o">=</span> <span class="n">wait</span><span class="p">(</span><span class="n">iso_uflux</span><span class="p">)</span>
-    <span class="n">iso_vflux</span> <span class="o">=</span> <span class="n">iso_vflux</span><span class="o">.</span><span class="n">persist</span><span class="p">()</span>
-    <span class="n">daskout</span> <span class="o">=</span> <span class="n">wait</span><span class="p">(</span><span class="n">iso_vflux</span><span class="p">)</span>
- 
+
     <span class="c1"># Compute Vertical Volume Flux from horizontal flux convergence</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;computing vertical volume flux at </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
     <span class="n">wflux</span> <span class="o">=</span> <span class="n">popmoc</span><span class="o">.</span><span class="n">wflux</span><span class="p">(</span><span class="n">iso_uflux</span><span class="p">,</span><span class="n">iso_vflux</span><span class="p">,</span><span class="s1">&#39;sigma&#39;</span><span class="p">,</span><span class="n">sigma_edge</span><span class="p">,</span><span class="n">grid</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
     <span class="n">wflux</span> <span class="o">=</span> <span class="n">wflux</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">({</span><span class="s1">&#39;TLAT&#39;</span><span class="p">:</span><span class="n">tlat</span><span class="p">,</span><span class="s1">&#39;TLONG&#39;</span><span class="p">:</span><span class="n">tlon</span><span class="p">})</span>
-    <span class="n">wflux</span> <span class="o">=</span> <span class="n">wflux</span><span class="o">.</span><span class="n">persist</span><span class="p">()</span>
-    <span class="n">daskout</span> <span class="o">=</span> <span class="n">wait</span><span class="p">(</span><span class="n">wflux</span><span class="p">)</span>
-    
+
     <span class="c1"># Compute MOC</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;computing MOC at </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
     <span class="n">MOC</span> <span class="o">=</span> <span class="n">popmoc</span><span class="o">.</span><span class="n">compute_MOC</span><span class="p">(</span><span class="n">wflux</span><span class="p">,</span><span class="n">rmaskmoc</span><span class="p">,</span><span class="n">ds_moctemp</span><span class="o">.</span><span class="n">lat_aux_grid</span><span class="p">)</span>
     <span class="n">MOC</span> <span class="o">=</span> <span class="n">MOC</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;transport_reg&#39;</span><span class="p">,</span><span class="s1">&#39;sigma&#39;</span><span class="p">,</span><span class="s1">&#39;lat_aux_grid&#39;</span><span class="p">)</span>
     <span class="n">MOC</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">MOC</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">MOC</span> <span class="o">=</span> <span class="n">MOC</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;loaded MOC&#39;</span><span class="p">)</span>
 
     <span class="c1"># add vflux at southern boundary of Atlantic domain</span>
     <span class="n">tmp</span> <span class="o">=</span> <span class="n">iso_vflux</span><span class="o">*</span><span class="p">(</span><span class="n">rmaskmoc</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">nlat</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
@@ -2276,145 +883,28 @@ Wall time: 12min 28s
     <span class="c1"># Save to netcdf</span>
     <span class="n">MOCann</span> <span class="o">=</span> <span class="n">MOC</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;year&#39;</span><span class="p">:</span><span class="s1">&#39;time&#39;</span><span class="p">})</span>
     <span class="n">dsout</span> <span class="o">=</span> <span class="n">MOCann</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">()</span>
-    
+
     <span class="n">outdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
     <span class="n">fout</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">fin</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
     <span class="n">fout</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;MOCsig&#39;</span><span class="p">)</span>
     <span class="n">fout</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:04d}</span><span class="s1">-</span><span class="si">{:04d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dsout</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">dsout</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
-    <span class="c1"># fout.append(&#39;{:04d}{:02d}-{:04d}{:02d}&#39;.format(dsout.time.dt.year[0].values,dsout.time.dt.month[0].values,dsout.time.dt.year[-1].values,dsout.time.dt.month[-1].values))</span>
     <span class="n">fout</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;nc&#39;</span><span class="p">)</span>
     <span class="n">fout</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fout</span><span class="p">)</span>
     <span class="n">fout</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span><span class="n">fout</span><span class="p">)</span>
-
     <span class="n">dsout</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">fout</span><span class="p">,</span><span class="n">unlimited_dims</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;wrote </span><span class="si">{}</span><span class="s2"> at </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fout</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>starting loop over 2006-2006 at Mon Mar  6 16:37:03 2023
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>starting loop over 2020-2029 at Tue Mar  7 15:47:43 2023
 determining time subset of files to operate on
-calculating sigma2_T: Mon Mar  6 16:37:03 2023
-calculated sigma2_T: Mon Mar  6 16:37:13 2023
-sigma2_T &lt;xarray.DataArray &#39;density&#39; (time: 12, z_t: 62, nlat: 2400, nlon: 3600)&gt;
-dask.array&lt;sub, shape=(12, 62, 2400, 3600), dtype=float32, chunksize=(1, 62, 2400, 100), chunktype=numpy.ndarray&gt;
-Coordinates:
-  * z_t      (z_t) float32 500.0 1.5e+03 2.5e+03 ... 5.625e+05 5.875e+05
-    ULONG    (nlat, nlon) float64 -1.0 -1.0 -1.0 -1.0 ... -1.0 -1.0 -1.0 -1.0
-    ULAT     (nlat, nlon) float64 -1.0 -1.0 -1.0 -1.0 ... -1.0 -1.0 -1.0 -1.0
-    TLONG    (nlat, nlon) float64 -1.0 -1.0 -1.0 -1.0 ... -1.0 -1.0 -1.0 -1.0
-    TLAT     (nlat, nlon) float64 -1.0 -1.0 -1.0 -1.0 ... -1.0 -1.0 -1.0 -1.0
-  * time     (time) object 2006-01-15 00:00:00 ... 2006-12-15 00:00:00
-Dimensions without coordinates: nlat, nlon
-Attributes:
-    long_name:  Sigma referenced to 2000m
-    units:      kg/m^3
-sigma_mid &lt;xarray.DataArray (sigma: 86)&gt;
-array([28.  , 28.2 , 28.4 , 28.6 , 28.8 , 29.  , 29.2 , 29.4 , 29.6 ,
-       29.8 , 30.  , 30.2 , 30.4 , 30.6 , 30.8 , 31.  , 31.2 , 31.4 ,
-       31.6 , 31.8 , 32.  , 32.2 , 32.4 , 32.6 , 32.8 , 33.  , 33.2 ,
-       33.4 , 33.6 , 33.8 , 34.  , 34.2 , 34.4 , 34.6 , 34.8 , 35.  ,
-       35.1 , 35.2 , 35.3 , 35.4 , 35.5 , 35.6 , 35.7 , 35.8 , 35.9 ,
-       36.  , 36.05, 36.1 , 36.15, 36.2 , 36.25, 36.3 , 36.35, 36.4 ,
-       36.45, 36.5 , 36.55, 36.6 , 36.65, 36.7 , 36.75, 36.8 , 36.85,
-       36.9 , 36.95, 37.  , 37.05, 37.1 , 37.15, 37.2 , 37.25, 37.3 ,
-       37.35, 37.4 , 37.45, 37.5 , 37.55, 37.6 , 37.65, 37.7 , 37.75,
-       37.8 , 37.85, 37.9 , 37.95, 38.  ], dtype=float32)
-Coordinates:
-  * sigma    (sigma) float32 28.0 28.2 28.4 28.6 28.8 ... 37.85 37.9 37.95 38.0
-Attributes:
-    long_name:  Sigma2 at middle of layer
-    units:      kg/m^3
-sigma_edge &lt;xarray.DataArray (sigma: 87)&gt;
-array([ 0.      , 28.1     , 28.3     , 28.5     , 28.7     , 28.9     ,
-       29.1     , 29.3     , 29.5     , 29.7     , 29.9     , 30.1     ,
-       30.3     , 30.5     , 30.7     , 30.9     , 31.1     , 31.3     ,
-       31.5     , 31.7     , 31.9     , 32.1     , 32.300003, 32.5     ,
-       32.699997, 32.9     , 33.1     , 33.300003, 33.5     , 33.699997,
-       33.9     , 34.1     , 34.300003, 34.5     , 34.699997, 34.9     ,
-       35.05    , 35.15    , 35.25    , 35.35    , 35.45    , 35.55    ,
-       35.65    , 35.75    , 35.85    , 35.95    , 36.025   , 36.074997,
-       36.125   , 36.175003, 36.225   , 36.275   , 36.324997, 36.375   ,
-       36.425003, 36.475   , 36.525   , 36.574997, 36.625   , 36.675003,
-       36.725   , 36.775   , 36.824997, 36.875   , 36.925003, 36.975   ,
-       37.025   , 37.074997, 37.125   , 37.175003, 37.225   , 37.275   ,
-       37.324997, 37.375   , 37.425003, 37.475   , 37.525   , 37.574997,
-       37.625   , 37.675003, 37.725   , 37.775   , 37.824997, 37.875   ,
-       37.925003, 37.975   , 50.      ], dtype=float32)
-Coordinates:
-  * sigma    (sigma) float32 0.0 28.1 28.3 28.5 28.7 ... 37.88 37.93 37.97 50.0
-Attributes:
-    long_name:  Sigma2 at edges of layer
-    units:      kg/m^3
-iso_thick Mon Mar  6 16:37:57 2023 at &lt;xarray.DataArray &#39;iso_thick&#39; (time: 12, nlat: 2400, nlon: 3600, sigma_mid: 86)&gt;
-dask.array&lt;sum-aggregate, shape=(12, 2400, 3600, 86), dtype=float32, chunksize=(1, 735, 100, 86), chunktype=numpy.ndarray&gt;
-Coordinates:
-  * time       (time) object 2006-01-15 00:00:00 ... 2006-12-15 00:00:00
-  * sigma_mid  (sigma_mid) float32 28.0 28.2 28.4 28.6 ... 37.85 37.9 37.95 38.0
-Dimensions without coordinates: nlat, nlon
-Attributes:
-    units:      m
-    long_name:  Isopycnal Layer Thickness
-iso_depth Mon Mar  6 16:37:57 2023 at &lt;xarray.DataArray &#39;iso_depth&#39; (time: 12, sigma_bot: 86, nlat: 2400, nlon: 3600)&gt;
-dask.array&lt;nancumsum, shape=(12, 86, 2400, 3600), dtype=float32, chunksize=(1, 86, 735, 100), chunktype=numpy.ndarray&gt;
-Coordinates:
-  * time       (time) object 2006-01-15 00:00:00 ... 2006-12-15 00:00:00
-  * sigma_bot  (sigma_bot) float32 28.1 28.3 28.5 28.7 ... 37.93 37.97 50.0
-Dimensions without coordinates: nlat, nlon
-Attributes:
-    units:      m
-    long_name:  Isopycnal Layer Depth
-generating grid-oriented volume fluxes at Mon Mar  6 16:37:57 2023
-converting to c-grid fluxes at Mon Mar  6 16:38:53 2023
-generating iso_flux at Mon Mar  6 16:38:53 2023
-performing dask operations at Mon Mar  6 16:38:53 2023
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">CancelledError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">File</span> <span class="o">&lt;</span><span class="n">timed</span> <span class="n">exec</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">67</span>
-
-<span class="nn">File ~/.conda/envs/ipogs_from_steve/lib/python3.10/site-packages/distributed/client.py:4901,</span> in <span class="ni">wait</span><span class="nt">(fs, timeout, return_when)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4899</span>     <span class="n">timeout</span> <span class="o">=</span> <span class="n">parse_timedelta</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4900</span> <span class="n">client</span> <span class="o">=</span> <span class="n">default_client</span><span class="p">()</span>
-<span class="ne">-&gt; </span><span class="mi">4901</span> <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">sync</span><span class="p">(</span><span class="n">_wait</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="n">return_when</span><span class="o">=</span><span class="n">return_when</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4902</span> <span class="k">return</span> <span class="n">result</span>
-
-<span class="nn">File ~/.conda/envs/ipogs_from_steve/lib/python3.10/site-packages/distributed/utils.py:339,</span> in <span class="ni">SyncMethodMixin.sync</span><span class="nt">(self, func, asynchronous, callback_timeout, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">337</span>     <span class="k">return</span> <span class="n">future</span>
-<span class="g g-Whitespace">    </span><span class="mi">338</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">339</span>     <span class="k">return</span> <span class="n">sync</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">340</span>         <span class="bp">self</span><span class="o">.</span><span class="n">loop</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">callback_timeout</span><span class="o">=</span><span class="n">callback_timeout</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">341</span>     <span class="p">)</span>
-
-<span class="nn">File ~/.conda/envs/ipogs_from_steve/lib/python3.10/site-packages/distributed/utils.py:406,</span> in <span class="ni">sync</span><span class="nt">(loop, func, callback_timeout, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span> <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">405</span>     <span class="n">typ</span><span class="p">,</span> <span class="n">exc</span><span class="p">,</span> <span class="n">tb</span> <span class="o">=</span> <span class="n">error</span>
-<span class="ne">--&gt; </span><span class="mi">406</span>     <span class="k">raise</span> <span class="n">exc</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">tb</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">408</span>     <span class="k">return</span> <span class="n">result</span>
-
-<span class="nn">File ~/.conda/envs/ipogs_from_steve/lib/python3.10/site-packages/distributed/utils.py:379,</span> in <span class="ni">sync.&lt;locals&gt;.f</span><span class="nt">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">377</span>         <span class="n">future</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait_for</span><span class="p">(</span><span class="n">future</span><span class="p">,</span> <span class="n">callback_timeout</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">378</span>     <span class="n">future</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">ensure_future</span><span class="p">(</span><span class="n">future</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">379</span>     <span class="n">result</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">future</span>
-<span class="g g-Whitespace">    </span><span class="mi">380</span> <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">381</span>     <span class="n">error</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()</span>
-
-<span class="nn">File ~/.conda/envs/ipogs_from_steve/lib/python3.10/site-packages/tornado/gen.py:762,</span> in <span class="ni">Runner.run</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">759</span> <span class="n">exc_info</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">761</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">762</span>     <span class="n">value</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">763</span> <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">764</span>     <span class="n">exc_info</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()</span>
-
-<span class="nn">File ~/.conda/envs/ipogs_from_steve/lib/python3.10/site-packages/distributed/client.py:4877,</span> in <span class="ni">_wait</span><span class="nt">(fs, timeout, return_when)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4875</span> <span class="n">cancelled</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">key</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">done</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;cancelled&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">4876</span> <span class="k">if</span> <span class="n">cancelled</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">4877</span>     <span class="k">raise</span> <span class="n">CancelledError</span><span class="p">(</span><span class="n">cancelled</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4879</span> <span class="k">return</span> <span class="n">DoneAndNotDoneFutures</span><span class="p">(</span><span class="n">done</span><span class="p">,</span> <span class="n">not_done</span><span class="p">)</span>
-
-<span class="ne">CancelledError</span>: [(&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 13, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 22, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 20, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 31, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 0, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 27, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 3, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 16, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 35, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 20, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 24, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 2, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 11, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 31, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 28, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 31, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 9, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 12, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 19, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 30, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 26, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 8, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 19, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 4, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 20, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 34, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 16, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 34, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 0, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 29, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 5, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 8, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 25, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 1, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 0, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 26, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 4, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 3, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 16, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 27, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 1, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 25, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 4, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 5, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 16, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 13, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 0, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 5, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 2, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 9, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 23, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 30, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 25, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 21, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 5, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 10, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 24, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 33, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 13, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 31, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 26, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 1, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 10, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 10, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 35, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 22, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 15, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 28, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 1, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 27, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 0, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 33, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 24, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 22, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 18, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 21, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 7, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 27, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 18, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 20, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 7, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 25, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 6, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 7, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 22, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 31, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 15, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 24, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 18, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 18, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 8, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 7, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 7, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 15, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 35, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 31, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 35, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 20, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 18, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 8, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 6, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 25, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 27, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 3, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 4, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 30, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 23, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 23, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 32, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 4, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 34, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 24, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 25, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 33, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 35, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 24, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 1, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 12, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 5, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 12, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 12, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 9, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 23, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 8, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 4, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 31, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 34, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 29, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 35, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 29, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 14, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 1, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 16, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 17, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 14, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 5, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 3, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 19, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 14, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 3, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 35, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 24, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 32, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 3, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 19, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 30, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 1, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 12, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 22, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 6, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 17, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 3, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 14, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 25, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 33, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 33, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 29, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 13, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 28, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 17, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 28, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 5, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 16, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 27, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 15, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 10, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 31, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 27, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 8, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 21, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 3, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 30, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 19, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 20, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 32, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 31, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 7, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 31, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 34, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 10, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 21, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 7, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 18, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 18, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 29, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 2, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 14, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 14, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 1, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 25, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 4, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 0, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 29, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 15, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 11, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 22, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 4, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 28, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 14, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 28, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 25, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 7, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 6, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 22, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 8, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 17, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 13, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 8, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 11, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 29, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 2, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 28, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 25, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 10, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 13, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 24, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 7, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 21, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 29, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 9, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 26, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 20, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 15, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 2, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 23, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 29, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 23, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 12, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 23, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 30, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 6, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 13, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 17, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 27, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 0, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 2, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 10, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 27, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 32, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 6, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 14, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 12, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 25, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 3, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 18, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 10, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 10, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 21, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 1, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 6, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 11, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 27, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 31, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 7, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 14, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 18, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 30, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 0, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 0, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 10, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 19, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 21, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 32, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 9, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 5, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 2, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 13, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 9, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 16, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 20, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 34, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 17, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 30, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 33, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 20, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 29, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 16, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 6, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 9, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 27, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 4, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 30, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 9, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 19, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 19, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 30, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 19, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 19, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 8, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 23, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 6, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 19, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 30, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 32, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 26, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 34, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 13, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 22, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 9, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 6, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 8, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 17, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 34, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 34, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 11, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 33, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 28, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 12, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 21, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 26, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 10, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 11, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 17, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 13, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 2, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 14, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 15, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 32, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 17, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 26, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 28, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 26, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 21, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 1, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 2, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 33, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 2, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 12, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 1, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 9, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 15, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 13, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 28, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 12, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 16, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 23, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 32, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 34, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 28, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 4, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 5, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 8, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 0, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 16, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 32, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 29, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 5, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 26, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 11, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 23, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 16, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 34, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 12, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 10, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 0, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 23, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 21, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 32, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 7, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 11, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 11, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 0, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 18, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 8, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 11, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 25, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 5, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 15, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 22, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 26, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 21, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 33, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 19, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 33, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 32, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 3, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 15, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 33, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 21, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 15, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 3, 0, 32, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 26, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 31, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 9, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 20, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 28, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 11, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 29, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 3, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 5, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 4, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 14, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 17, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 24, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 16, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 35, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 8, 0, 30, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 2, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 13, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 24, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 35, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 24, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 9, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 35, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 20, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 35, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 35, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 6, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 11, 0, 18, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 7, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 17, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 4, 0, 22, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 27, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 3, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 24, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 20, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 5, 0, 14, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 7, 0, 2, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 11, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 22, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 34, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 9, 0, 26, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 4, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 10, 0, 6, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 2, 0, 15, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 17, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 22, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 6, 0, 33, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 23, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 0, 0, 18, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 12, 0), (&#39;sum-aggregate-d859386ff4f0892813e53815d72faaf0&#39;, 1, 0, 1, 0)]
+calculating sigma2_T: Tue Mar  7 15:47:43 2023
+calculated sigma2_T: Tue Mar  7 15:47:52 2023
+sigma_mid and edge were calculated
+generating grid-oriented volume fluxes at Tue Mar  7 15:47:52 2023
+converting to c-grid fluxes at Tue Mar  7 15:48:09 2023
+generating iso_flux at Tue Mar  7 15:48:10 2023
 </pre></div>
 </div>
 </div>
