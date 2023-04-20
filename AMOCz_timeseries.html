@@ -299,7 +299,8 @@ document.write(`
 <h1>AMOC Z Plotting Routines<a class="headerlink" href="#amoc-z-plotting-routines" title="Permalink to this heading">#</a></h1>
 <p><strong>Goal:</strong> Produce timeseries plots for AMOC(z)<br />
 <strong>Date:</strong> April 2023<br />
-<strong>Creator:</strong> Frederic Castruccio</p>
+<strong>Creator:</strong> Frederic Castruccio<br />
+<strong>Updated:</strong> Teagan King, April 2023</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
@@ -309,8 +310,6 @@ document.write(`
 <span class="kn">import</span> <span class="nn">cftime</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">copy</span>
-<span class="c1">#import scipy.stats</span>
-<span class="c1">#from scipy import signal</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">dask</span>
@@ -320,24 +319,14 @@ document.write(`
 <span class="kn">from</span> <span class="nn">matplotlib.dates</span> <span class="kn">import</span> <span class="n">ConciseDateConverter</span>
 <span class="n">munits</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="n">cftime</span><span class="o">.</span><span class="n">DatetimeNoLeap</span><span class="p">]</span> <span class="o">=</span> <span class="n">ConciseDateConverter</span><span class="p">()</span>
 <span class="n">munits</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">]</span> <span class="o">=</span> <span class="n">ConciseDateConverter</span><span class="p">()</span>
-<span class="c1">#from geocat.viz import util as gvutil</span>
-<span class="c1">#import util</span>
 <span class="kn">import</span> <span class="nn">cartopy</span>
-<span class="kn">import</span> <span class="nn">xesmf</span> <span class="k">as</span> <span class="nn">xe</span>
-<span class="c1">#import xskillscore as xs</span>
-<span class="c1">#cartopy.config[&#39;pre_existing_data_dir&#39;]=&#39;/ihesp/shared/cartopy_features&#39;</span>
-<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
-<span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cfeature</span>
-<span class="kn">from</span> <span class="nn">cartopy.util</span> <span class="kn">import</span> <span class="n">add_cyclic_point</span>
-<span class="kn">import</span> <span class="nn">matplotlib.ticker</span> <span class="k">as</span> <span class="nn">mticker</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
-
-<span class="c1">#from HRDPutils import calendar_utils as cal</span>
-<span class="c1">#from HRDPutils import stat_utils as stat</span>
-<span class="c1">#from HRDPutils import mapplot_utils as maps</span>
-<span class="c1">#from HRDPutils import colorbar_utils as cbars</span>
-<span class="c1">#from HRDPutils import io_utils as io</span>
-<span class="c1">#from HRDPutils import regrid_utils as regrid</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The autoreload extension is already loaded. To reload it, use:
+  %reload_ext autoreload
 </pre></div>
 </div>
 </div>
@@ -346,7 +335,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mocf</span> <span class="o">=</span> <span class="s1">&#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF/ocn/proc/tseries/month_1/B.E.13.BRCP85C5CN.ne120_t12.sehires38.003.sunway.CN_OFF.pop.h.MOCz.200601.210012.nc&#39;</span>
 <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">mocf</span><span class="p">)</span>
-<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1">#middle of the month</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># middle of the month</span>
 </pre></div>
 </div>
 </div>
@@ -369,8 +358,15 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mocf</span> <span class="o">=</span> <span class="s1">&#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.30.002/ocn/proc/tseries/month_1/b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.30.002.pop.h.MOCz.200601-210012.nc&#39;</span>
-<span class="n">ds2</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">mocf</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mocf</span> <span class="o">=</span> <span class="s1">&#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.30.002/ocn/proc/tseries/month_1/b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.30.002.pop.h.MOCz.*.nc&#39;</span>
+<span class="n">ds2</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">mocf</span><span class="p">,</span>
+                       <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;nested&quot;</span><span class="p">,</span>  <span class="c1"># combine files in order provided</span>
+                       <span class="n">concat_dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>  <span class="c1"># concatentate files along time dimension</span>
+                       <span class="n">data_vars</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>  <span class="c1"># only concatentate data variables with &quot;time&quot; dimension</span>
+                       <span class="n">coords</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>  <span class="c1"># same as above for coordinate variables</span>
+                       <span class="n">compat</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span>
+                       <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="c1"># choose simple</span>
+                      <span class="p">)</span>
 <span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">amoc_rcp85_1</span><span class="o">.</span><span class="n">time</span>
 
 <span class="n">amoc_rcp85_2</span> <span class="o">=</span> <span class="n">ds2</span><span class="o">.</span><span class="n">MOC</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds2</span><span class="o">.</span><span class="n">MOC</span><span class="o">.</span><span class="n">moc_z</span> <span class="o">&gt;</span> <span class="mi">50000</span><span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">transport_reg</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="s1">&#39;moc_z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat_aux_grid</span><span class="o">=</span><span class="mf">26.5</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
@@ -396,14 +392,11 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mocf</span> <span class="o">=</span> <span class="s1">&#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP45/HR/b.e13.BRCP45C5.ne120_t12.cesm-ihesp-hires1.0.42.003/ocn/proc/tseries/month_1/b.e13.BRCP45C5.ne120_t12.cesm-ihesp-hires1.0.42.003.pop.h.MOCz.*.nc&#39;</span>
 
 <span class="n">ds4</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">mocf</span><span class="p">,</span>
-                      <span class="c1">#parallel=True, # use dask to read in parallel</span>
                        <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;nested&quot;</span><span class="p">,</span>  <span class="c1"># combine files in order provided</span>
                        <span class="n">concat_dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>  <span class="c1"># concatentate files along time dimension</span>
                        <span class="n">data_vars</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>  <span class="c1"># only concatentate data variables with &quot;time&quot; dimension</span>
                        <span class="n">coords</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>  <span class="c1"># same as above for coordinate variables</span>
                        <span class="n">compat</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span>
-                       <span class="c1">#preprocess=preprocess, # run this function on each dataset first before combining</span>
-                       <span class="c1">#chunks={&quot;nlat&quot;: &quot;auto&quot;, &quot;nlon&quot;: &quot;auto&quot;}, # choose simple</span>
                        <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="c1"># choose simple</span>
                       <span class="p">)</span>
 
@@ -420,14 +413,11 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mocf</span> <span class="o">=</span> <span class="s1">&#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP26/HR/b.e13.BRCP26C5.ne120_t12.cesm-ihesp-hires1.0.42.003/ocn/proc/tseries/month_1/b.e13.BRCP26C5.ne120_t12.cesm-ihesp-hires1.0.42.003.pop.h.MOCz.*.nc&#39;</span>
 
 <span class="n">ds5</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">mocf</span><span class="p">,</span>
-                      <span class="c1">#parallel=True, # use dask to read in parallel</span>
                        <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;nested&quot;</span><span class="p">,</span>  <span class="c1"># combine files in order provided</span>
                        <span class="n">concat_dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>  <span class="c1"># concatentate files along time dimension</span>
                        <span class="n">data_vars</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>  <span class="c1"># only concatentate data variables with &quot;time&quot; dimension</span>
                        <span class="n">coords</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>  <span class="c1"># same as above for coordinate variables</span>
                        <span class="n">compat</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span>
-                       <span class="c1">#preprocess=preprocess, # run this function on each dataset first before combining</span>
-                       <span class="c1">#chunks={&quot;nlat&quot;: &quot;auto&quot;, &quot;nlon&quot;: &quot;auto&quot;}, # choose simple</span>
                        <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="c1"># choose simple</span>
                       <span class="p">)</span>
 
@@ -435,6 +425,26 @@ document.write(`
 
 <span class="n">amoc_rcp26_1</span> <span class="o">=</span> <span class="n">ds5</span><span class="o">.</span><span class="n">MOC</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds5</span><span class="o">.</span><span class="n">MOC</span><span class="o">.</span><span class="n">moc_z</span> <span class="o">&gt;</span> <span class="mi">50000</span><span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">transport_reg</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="s1">&#39;moc_z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat_aux_grid</span><span class="o">=</span><span class="mf">26.5</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
 <span class="n">yamoc_rcp26_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">amoc_rcp26_1</span> <span class="o">*</span> <span class="n">wgts</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s2">&quot;AS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">xr</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">amoc_rcp26_1</span><span class="p">)</span> <span class="o">*</span> <span class="n">wgts</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s2">&quot;AS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mocf</span> <span class="o">=</span> <span class="s1">&#39;/glade/scratch/tking/MOCz/b.e13.BRCP60C5.ne120_t12.cesm-ihesp-hires1.0.44.003.pop.h.MOCz.*.nc&#39;</span>
+<span class="n">ds6</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">mocf</span><span class="p">,</span>
+                       <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;nested&quot;</span><span class="p">,</span>  <span class="c1"># combine files in order provided</span>
+                       <span class="n">concat_dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>  <span class="c1"># concatentate files along time dimension</span>
+                       <span class="n">data_vars</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>  <span class="c1"># only concatentate data variables with &quot;time&quot; dimension</span>
+                       <span class="n">coords</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>  <span class="c1"># same as above for coordinate variables</span>
+                       <span class="n">compat</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span>
+                       <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="c1"># choose simple</span>
+                      <span class="p">)</span>
+
+<span class="n">ds6</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">amoc_rcp85_1</span><span class="o">.</span><span class="n">time</span>
+
+<span class="n">amoc_rcp60_1</span> <span class="o">=</span> <span class="n">ds6</span><span class="o">.</span><span class="n">MOC</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds6</span><span class="o">.</span><span class="n">MOC</span><span class="o">.</span><span class="n">moc_z</span> <span class="o">&gt;</span> <span class="mi">50000</span><span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">transport_reg</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="s1">&#39;moc_z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat_aux_grid</span><span class="o">=</span><span class="mf">26.5</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+<span class="n">yamoc_rcp60_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">amoc_rcp60_1</span> <span class="o">*</span> <span class="n">wgts</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s2">&quot;AS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">xr</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">amoc_rcp60_1</span><span class="p">)</span> <span class="o">*</span> <span class="n">wgts</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s2">&quot;AS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -453,18 +463,19 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yamoc_rcp85_2</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">yamoc_rcp85_2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RCP85 #2&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yamoc_rcp85_3</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">yamoc_rcp85_3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RCP85 #3&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yamoc_rcp85</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">yamoc_rcp85</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RCP85&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yamoc_rcp60_1</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">yamoc_rcp60_1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RCP60 #1&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yamoc_rcp45_1</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">yamoc_rcp45_1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RCP45 #1&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yamoc_rcp26_1</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">yamoc_rcp26_1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RCP26 #1&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;AMOC at 26.5N&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;AMOC(z) at 26.5N&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;AMOC (in Sv)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;AMOC_26_5_ts_RCPs.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;portrait&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;AMOCz_allRCPs.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;portrait&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2eaea000226ae67a2b2c82d0c711fd2ac67a425b3f52dbf8d14fbd504503a0dc.png" src="_images/2eaea000226ae67a2b2c82d0c711fd2ac67a425b3f52dbf8d14fbd504503a0dc.png" />
+<img alt="_images/bac492c18c82f8864e0879fb85acfda849920bfc49e993d1c3365e2dc88aabad.png" src="_images/bac492c18c82f8864e0879fb85acfda849920bfc49e993d1c3365e2dc88aabad.png" />
 </div>
 </div>
 </section>

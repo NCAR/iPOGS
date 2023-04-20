@@ -321,12 +321,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The autoreload extension is already loaded. To reload it, use:
-  %reload_ext autoreload
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -420,6 +414,23 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mocf</span> <span class="o">=</span> <span class="s1">&#39;/glade/scratch/tking/MOCsig/b.e13.BRCP60C5.ne120_t12.cesm-ihesp-hires1.0.44.003.pop.h.MOCsig.*.nc&#39;</span>
+
+<span class="n">ds6</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">mocf</span><span class="p">,</span>
+                       <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;nested&quot;</span><span class="p">,</span>  <span class="c1"># combine files in order provided</span>
+                       <span class="n">concat_dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>  <span class="c1"># concatentate files along time dimension</span>
+                       <span class="n">data_vars</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>  <span class="c1"># only concatentate data variables with &quot;time&quot; dimension</span>
+                       <span class="n">coords</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>  <span class="c1"># same as above for coordinate variables</span>
+                       <span class="n">compat</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span>
+                       <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="c1"># choose simple</span>
+                      <span class="p">)</span>
+<span class="n">yamoc_rcp60_1</span> <span class="o">=</span> <span class="n">ds6</span><span class="o">.</span><span class="n">MOC</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">transport_reg</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat_aux_grid</span><span class="o">=</span><span class="mf">26.5</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="s1">&#39;sigma&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># perform average of RCP 8.5 scenarios</span>
 <span class="n">yamoc_rcp85</span> <span class="o">=</span> <span class="p">(</span><span class="n">yamoc_rcp85_1</span> <span class="o">+</span> <span class="n">yamoc_rcp85_2</span> <span class="o">+</span> <span class="n">yamoc_rcp85_3</span><span class="p">)</span> <span class="o">/</span> <span class="mf">3.</span>
 </pre></div>
@@ -434,6 +445,7 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xamoc</span><span class="p">,</span> <span class="n">yamoc_rcp85_2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RCP85 #2&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xamoc</span><span class="p">,</span> <span class="n">yamoc_rcp85_3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RCP85 #3&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xamoc</span><span class="p">,</span> <span class="n">yamoc_rcp85</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RCP85&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xamoc</span><span class="p">,</span> <span class="n">yamoc_rcp60_1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RCP60 #1&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xamoc</span><span class="p">,</span> <span class="n">yamoc_rcp45_1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RCP45 #1&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xamoc</span><span class="p">,</span> <span class="n">yamoc_rcp26_1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RCP26 #1&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -445,7 +457,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d6a4ee4261042ddb2342ff2f77d11dfe44f0e800af2e1933b826c013df70def4.png" src="_images/d6a4ee4261042ddb2342ff2f77d11dfe44f0e800af2e1933b826c013df70def4.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/dask/array/reductions.py:608: RuntimeWarning: All-NaN slice encountered
+  return np.nanmax(x_chunk, axis=axis, keepdims=keepdims)
+</pre></div>
+</div>
+<img alt="_images/1176f9b0217fb0395c2ab97eb4a1e9383e37a2cca1eee5f4e2dda1d50ea4fc5e.png" src="_images/1176f9b0217fb0395c2ab97eb4a1e9383e37a2cca1eee5f4e2dda1d50ea4fc5e.png" />
 </div>
 </div>
 </section>
