@@ -328,12 +328,9 @@ document.write(`
 <span class="kn">from</span> <span class="nn">matplotlib.dates</span> <span class="kn">import</span> <span class="n">ConciseDateConverter</span>
 <span class="n">munits</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="n">cftime</span><span class="o">.</span><span class="n">DatetimeNoLeap</span><span class="p">]</span> <span class="o">=</span> <span class="n">ConciseDateConverter</span><span class="p">()</span>
 <span class="n">munits</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">]</span> <span class="o">=</span> <span class="n">ConciseDateConverter</span><span class="p">()</span>
-<span class="c1">#from geocat.viz import util as gvutil</span>
-<span class="c1">#import util</span>
+
 <span class="kn">import</span> <span class="nn">cartopy</span>
 <span class="kn">import</span> <span class="nn">xesmf</span> <span class="k">as</span> <span class="nn">xe</span>
-<span class="c1">#import xskillscore as xs</span>
-<span class="c1">#cartopy.config[&#39;pre_existing_data_dir&#39;]=&#39;/ihesp/shared/cartopy_features&#39;</span>
 <span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
 <span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cfeature</span>
 <span class="kn">from</span> <span class="nn">cartopy.util</span> <span class="kn">import</span> <span class="n">add_cyclic_point</span>
@@ -341,13 +338,6 @@ document.write(`
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="kn">import</span> <span class="nn">os</span>
-
-<span class="c1">#from HRDPutils import calendar_utils as cal</span>
-<span class="c1">#from HRDPutils import stat_utils as stat</span>
-<span class="c1">#from HRDPutils import mapplot_utils as maps</span>
-<span class="c1">#from HRDPutils import colorbar_utils as cbars</span>
-<span class="c1">#from HRDPutils import io_utils as io</span>
-<span class="c1">#from HRDPutils import regrid_utils as regrid</span>
 </pre></div>
 </div>
 </div>
@@ -408,14 +398,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/work/fredc/miniconda3/envs/sparse/lib/python3.7/site-packages/distributed/node.py:161: UserWarning: Port 8787 is already in use.
-Perhaps you already have a cluster running?
-Hosting the HTTP server on port 38763 instead
-  f&quot;Port {expected} is already in use.\n&quot;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -429,11 +411,11 @@ Hosting the HTTP server on port 38763 instead
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">PBSCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">6a5cd763</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">52ca1231</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
-                    <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/38763/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/38763/status</a>
+                    <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/8787/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/8787/status</a>
                 </td>
                 <td style="text-align: left;">
                     <strong>Workers:</strong> 0
@@ -460,11 +442,11 @@ Hosting the HTTP server on port 38763 instead
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-42dc4573-894c-4682-84a4-241ba0ea177a</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-6d501982-f1b3-4416-92b8-2534f89ad399</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://10.12.206.5:45993
+                        <strong>Comm:</strong> tcp://10.12.206.60:41207
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 0
@@ -472,7 +454,7 @@ Hosting the HTTP server on port 38763 instead
                 </tr>
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/38763/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/38763/status</a>
+                        <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/8787/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/fredc/proxy/8787/status</a>
                     </td>
                     <td style="text-align: left;">
                         <strong>Total threads:</strong> 0
@@ -530,17 +512,18 @@ Hosting the HTTP server on port 38763 instead
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 25.1 ms, sys: 6.38 ms, total: 31.4 ms
-Wall time: 106 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 22.9 ms, sys: 25.9 ms, total: 48.8 ms
+Wall time: 535 ms
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfile</span> <span class="o">=</span> <span class="s1">&#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP26/HR/b.e13.BRCP26C5.ne120_t12.cesm-ihesp-hires1.0.42.003/ocn/proc/tseries/month_1/b.e13.BRCP26C5.ne120_t12.cesm-ihesp-hires1.0.42.003.pop.h.TEMP.200601-210012.nc&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#tfile = &#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP26/HR/b.e13.BRCP26C5.ne120_t12.cesm-ihesp-hires1.0.42.003/ocn/proc/tseries/month_1/b.e13.BRCP26C5.ne120_t12.cesm-ihesp-hires1.0.42.003.pop.h.TEMP.200601-210012.nc&#39;</span>
 <span class="c1">#tfile = &#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP45/HR/b.e13.BRCP45C5.ne120_t12.cesm-ihesp-hires1.0.42.003/ocn/proc/tseries/month_1/b.e13.BRCP45C5.ne120_t12.cesm-ihesp-hires1.0.42.003.pop.h.TEMP.200601-210012.nc&#39;</span>
 <span class="c1">#tfile = &#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.30.002/ocn/proc/tseries/month_1/b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.30.002.pop.h.TEMP.200601-210012.nc&#39;</span>
+<span class="n">tfile</span> <span class="o">=</span> <span class="s1">&#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.31.003/ocn/proc/tseries/month_1/b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.31.003.pop.h.TEMP.200601-210012.nc&#39;</span>
 <span class="n">dst</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">tfile</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;nlat&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;nlon&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;z_t&quot;</span><span class="p">:</span><span class="mi">62</span><span class="p">})</span>
 <span class="n">dst</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dst</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="c1">#middle of the month</span>
 <span class="n">temp_all</span> <span class="o">=</span> <span class="n">dst</span><span class="o">.</span><span class="n">TEMP</span>
@@ -550,9 +533,10 @@ Wall time: 106 ms
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfile</span> <span class="o">=</span> <span class="s1">&#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP26/HR/b.e13.BRCP26C5.ne120_t12.cesm-ihesp-hires1.0.42.003/ocn/proc/tseries/month_1/b.e13.BRCP26C5.ne120_t12.cesm-ihesp-hires1.0.42.003.pop.h.SALT.200601-210012.nc&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#sfile = &#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP26/HR/b.e13.BRCP26C5.ne120_t12.cesm-ihesp-hires1.0.42.003/ocn/proc/tseries/month_1/b.e13.BRCP26C5.ne120_t12.cesm-ihesp-hires1.0.42.003.pop.h.SALT.200601-210012.nc&#39;</span>
 <span class="c1">#sfile = &#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP45/HR/b.e13.BRCP45C5.ne120_t12.cesm-ihesp-hires1.0.42.003/ocn/proc/tseries/month_1/b.e13.BRCP45C5.ne120_t12.cesm-ihesp-hires1.0.42.003.pop.h.SALT.200601-210012.nc&#39;</span>
 <span class="c1">#sfile = &#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.30.002/ocn/proc/tseries/month_1/b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.30.002.pop.h.SALT.200601-210012.nc&#39;</span>
+<span class="n">sfile</span> <span class="o">=</span> <span class="s1">&#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP85/HR/b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.31.003/ocn/proc/tseries/month_1/b.e13.BRCP85C5.ne120_t12.cesm-ihesp-hires1.0.31.003.pop.h.SALT.200601-210012.nc&#39;</span>
 <span class="n">dss</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">sfile</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;nlat&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;nlon&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;z_t&quot;</span><span class="p">:</span><span class="mi">62</span><span class="p">})</span>
 <span class="n">dss</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dst</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
 <span class="n">salt_all</span> <span class="o">=</span> <span class="n">dss</span><span class="o">.</span><span class="n">SALT</span>
@@ -618,16 +602,16 @@ Wall time: 106 ms
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "conda-env-miniconda3-sparse-py"
+            mode: "atm_diag_env"
         },
         kernelOptions: {
-            name: "conda-env-miniconda3-sparse-py",
+            name: "atm_diag_env",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'conda-env-miniconda3-sparse-py'</script>
+    <script>kernelName = 'atm_diag_env'</script>
 
                 </article>
               
