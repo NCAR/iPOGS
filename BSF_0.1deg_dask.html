@@ -294,7 +294,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">POP Atlantic BSF for 0.1-degree</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-required-variables">Get the required variables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-bsf-for-rcp-products">Compute BSF for RCP Products</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-required-variables">Get the required variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#region-mask-grid-fields">Region Mask &amp; Grid Fields</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-bsf">Compute BSF</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-to-netcdf">Output to netcdf</a></li>
@@ -306,6 +307,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Output to netcdf</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-bsf-for-hr-dp-products">Compute BSF for HR-DP Products</a></li>
 </ul>
 
             </nav>
@@ -382,9 +384,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: optimize dask resources</span>
-
-<span class="k">def</span> <span class="nf">get_ClusterClient</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_ClusterClient</span><span class="p">():</span>
     <span class="kn">import</span> <span class="nn">dask</span>
     <span class="kn">from</span> <span class="nn">dask_jobqueue</span> <span class="kn">import</span> <span class="n">PBSCluster</span>
     <span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
@@ -410,15 +410,7 @@ document.write(`
     <span class="k">return</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">client</span>
 
 <span class="n">cluster</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">get_ClusterClient</span><span class="p">()</span>
-<span class="n">cluster</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/u/home/tking/.conda/envs/ipogs/lib/python3.10/site-packages/distributed/node.py:179: UserWarning: Port 8787 is already in use.
-Perhaps you already have a cluster running?
-Hosting the HTTP server on port 40574 instead
-  warnings.warn(
+<span class="n">cluster</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -434,7 +426,7 @@ Hosting the HTTP server on port 40574 instead
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-4db0011b-dedb-11ed-b198-ac1f6bab1e16</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-17169aab-e9e6-11ed-a221-3cecef1acc56</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -447,7 +439,7 @@ Hosting the HTTP server on port 40574 instead
         
             <tr>
                 <td style="text-align: left;">
-                    <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/40574/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/40574/status</a>
+                    <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/8787/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/8787/status</a>
                 </td>
                 <td style="text-align: left;"></td>
             </tr>
@@ -463,11 +455,11 @@ Hosting the HTTP server on port 40574 instead
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">PBSCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">4f5a260a</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">00f5c95a</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
-                    <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/40574/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/40574/status</a>
+                    <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/8787/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/8787/status</a>
                 </td>
                 <td style="text-align: left;">
                     <strong>Workers:</strong> 0
@@ -494,11 +486,11 @@ Hosting the HTTP server on port 40574 instead
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-0f742481-7cba-4bde-80d7-0516ddcaeb82</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-e03a3b20-940d-4eb6-994a-0280de451dc6</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://10.12.205.13:36807
+                        <strong>Comm:</strong> tcp://10.12.206.24:35822
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 0
@@ -506,7 +498,7 @@ Hosting the HTTP server on port 40574 instead
                 </tr>
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/40574/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/40574/status</a>
+                        <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/8787/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/tking/proxy/8787/status</a>
                     </td>
                     <td style="text-align: left;">
                         <strong>Total threads:</strong> 0
@@ -571,8 +563,10 @@ Hosting the HTTP server on port 40574 instead
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="get-the-required-variables">
-<h1>Get the required variables<a class="headerlink" href="#get-the-required-variables" title="Permalink to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="compute-bsf-for-rcp-products">
+<h1>Compute BSF for RCP Products<a class="headerlink" href="#compute-bsf-for-rcp-products" title="Permalink to this heading">#</a></h1>
+<section id="get-the-required-variables">
+<h2>Get the required variables<a class="headerlink" href="#get-the-required-variables" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fdir</span> <span class="o">=</span> <span class="s1">&#39;/glade/campaign/collections/cmip/CMIP6/iHESP/BRCP60/HR/b.e13.BRCP60C5.ne120_t12.cesm-ihesp-hires1.0.44.003/ocn/proc/tseries/month_1/&#39;</span>
@@ -1480,6 +1474,7 @@ Attributes:
 </div>
 </div>
 </div>
+</section>
 <section id="region-mask-grid-fields">
 <h2>Region Mask &amp; Grid Fields<a class="headerlink" href="#region-mask-grid-fields" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -3209,6 +3204,143 @@ Wall time: 1h 32min 42s
 </div>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="compute-bsf-for-hr-dp-products">
+<h1>Compute BSF for HR-DP Products<a class="headerlink" href="#compute-bsf-for-hr-dp-products" title="Permalink to this heading">#</a></h1>
+<p>These need to be treated differently due to file format</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="nb">list</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 4, 5]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">member</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">member</span> <span class="o">=</span> <span class="s1">&#39;00&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">member</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">member</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">member</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;working on member </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">member</span><span class="p">))</span>
+    
+    <span class="n">fdir</span> <span class="o">=</span> <span class="s1">&#39;/glade/campaign/collections/cmip/CMIP6/iHESP/HR-DP/*</span><span class="si">{}</span><span class="s1">/ocn/proc/tseries/month_1/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">member</span><span class="p">)</span>
+    <span class="n">fin</span> <span class="o">=</span> <span class="n">fdir</span> <span class="o">+</span> <span class="s1">&#39;b.e13.BDP-HR.ne120_t12.*.pop.h.VVEL.*.nc&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
+
+    <span class="n">vvel_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">fin</span><span class="p">))</span>
+    
+    <span class="c1"># don&#39;t duplicate files that were already created on second iteration,</span>
+    <span class="c1"># after first notebook failure. UPDATE THIS IF SCRIPT NEEDS TO RESTART!   </span>
+    <span class="k">if</span> <span class="n">member</span><span class="o">==</span><span class="s1">&#39;002&#39;</span><span class="p">:</span>
+        <span class="n">vvel_files</span> <span class="o">=</span> <span class="n">vvel_files</span><span class="p">[</span><span class="mi">16</span><span class="p">:]</span>
+
+    <span class="k">for</span> <span class="n">vvelfile</span> <span class="ow">in</span> <span class="n">vvel_files</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;vvelfile: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">vvelfile</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;creating </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">vvelfile</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;VVEL&#39;</span><span class="p">,</span><span class="s1">&#39;BSF&#39;</span><span class="p">)))</span>
+        
+        <span class="n">dsV</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">vvelfile</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;nlat&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span> <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">vvel</span> <span class="o">=</span> <span class="n">dsV</span><span class="p">[</span><span class="s1">&#39;VVEL&#39;</span><span class="p">]</span>
+        <span class="n">vvel</span> <span class="o">=</span> <span class="n">vvel</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">vvel</span><span class="o">&lt;</span><span class="mf">1.e30</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="mf">100.</span>
+    
+        <span class="c1"># Region Mask &amp; Grid Fields</span>
+        <span class="c1"># Define the MOC region mask:</span>
+        <span class="n">rmask</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="o">.</span><span class="n">REGION_MASK</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ULONG&#39;</span><span class="p">,</span><span class="s1">&#39;ULAT&#39;</span><span class="p">])</span>
+        <span class="n">rmaskatl</span> <span class="o">=</span> <span class="p">(</span><span class="n">rmask</span><span class="o">==</span><span class="mi">6</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">rmask</span><span class="o">==</span><span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">rmask</span><span class="o">==</span><span class="mi">9</span><span class="p">)</span>
+    
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;beginning dz/kmt/dxu step&#39;</span><span class="p">)</span>
+        <span class="n">dz</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="p">[</span><span class="s1">&#39;dz&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">persist</span><span class="p">()</span><span class="o">/</span><span class="mf">100.</span>
+        <span class="n">kmt</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="p">[</span><span class="s1">&#39;KMT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">persist</span><span class="p">()</span> 
+        <span class="n">dxu</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="p">[</span><span class="s1">&#39;DXU&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">persist</span><span class="p">()</span><span class="o">/</span><span class="mf">100.</span>
+        <span class="c1"># the next step takes about 30 seconds when run in a notebook with 30GB allocated memory</span>
+        <span class="c1"># and about 12 minutes with the default 4GB allocated memory</span>
+        <span class="n">dzt</span><span class="p">,</span><span class="n">dzu</span> <span class="o">=</span> <span class="n">popmoc</span><span class="o">.</span><span class="n">tx0p1v3_dztdzu</span><span class="p">(</span><span class="n">dz</span><span class="p">,</span><span class="n">kmt</span><span class="p">)</span>
+    
+        <span class="n">tlon</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="o">.</span><span class="n">TLONG</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ULONG&#39;</span><span class="p">,</span><span class="s1">&#39;ULAT&#39;</span><span class="p">])</span>
+        <span class="n">tlat</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="o">.</span><span class="n">TLAT</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ULONG&#39;</span><span class="p">,</span><span class="s1">&#39;ULAT&#39;</span><span class="p">])</span>
+        <span class="n">ulon</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="o">.</span><span class="n">ULONG</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;TLONG&#39;</span><span class="p">,</span><span class="s1">&#39;TLAT&#39;</span><span class="p">])</span>
+        <span class="n">ulat</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="o">.</span><span class="n">ULAT</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;TLONG&#39;</span><span class="p">,</span><span class="s1">&#39;TLAT&#39;</span><span class="p">])</span>
+    
+        <span class="c1"># Compute BSF</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;computing bsf&#39;</span><span class="p">)</span>
+        <span class="n">sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">vvel</span><span class="o">*</span><span class="n">dzt</span><span class="o">*</span><span class="n">dxu</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;z_t&#39;</span><span class="p">)</span>
+        <span class="n">sv</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;m^3/s&#39;</span>
+        <span class="n">sv_atl</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">rmaskatl</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;TLONG&#39;</span><span class="p">,</span><span class="s1">&#39;TLAT&#39;</span><span class="p">])</span>
+        <span class="n">bsf</span> <span class="o">=</span> <span class="n">sv_atl</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="s1">&#39;nlon&#39;</span><span class="p">)</span><span class="o">/</span><span class="mf">1.e6</span>
+        <span class="n">bsf</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">rmaskatl</span><span class="p">,</span><span class="n">bsf</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">bsf</span> <span class="o">=</span> <span class="n">bsf</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">({</span><span class="s1">&#39;ULAT&#39;</span><span class="p">:</span><span class="n">ulat</span><span class="p">,</span><span class="s1">&#39;ULONG&#39;</span><span class="p">:</span><span class="n">ulon</span><span class="p">})</span>
+        <span class="n">bsf</span> <span class="o">=</span> <span class="n">bsf</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">kmt</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;TLONG&#39;</span><span class="p">,</span><span class="s1">&#39;TLAT&#39;</span><span class="p">])</span>
+        <span class="n">bsf</span> <span class="o">=</span> <span class="n">bsf</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">({</span><span class="s1">&#39;units&#39;</span><span class="p">:</span><span class="s1">&#39;Sv&#39;</span><span class="p">,</span><span class="s1">&#39;long_name&#39;</span><span class="p">:</span><span class="s1">&#39;Barotropic Streamfunction&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;BSF&#39;</span><span class="p">)</span>
+        <span class="n">bsf</span> <span class="o">=</span> <span class="n">bsf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;nlat&#39;</span><span class="p">,</span><span class="s1">&#39;nlon&#39;</span><span class="p">)</span>
+        <span class="n">bsf</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">bsf</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># bsf.isel(time=-1).plot()</span>
+        <span class="n">dsout</span> <span class="o">=</span> <span class="n">bsf</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">()</span>
+        <span class="n">fout</span> <span class="o">=</span> <span class="s1">&#39;/glade/scratch/tking/BSF/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">vvelfile</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;VVEL&#39;</span><span class="p">,</span><span class="s1">&#39;BSF&#39;</span><span class="p">))</span>
+        <span class="n">dsout</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">fout</span><span class="p">,</span><span class="n">unlimited_dims</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;created netcdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>working on member 002
+/glade/campaign/collections/cmip/CMIP6/iHESP/HR-DP/*002/ocn/proc/tseries/month_1/b.e13.BDP-HR.ne120_t12.*.pop.h.VVEL.*.nc
+vvelfile: /glade/campaign/collections/cmip/CMIP6/iHESP/HR-DP/b.e13.BDP-HR.ne120_t12.2002-11.002/ocn/proc/tseries/month_1/b.e13.BDP-HR.ne120_t12.2002-11.002.pop.h.VVEL.200211-200712.nc
+creating b.e13.BDP-HR.ne120_t12.2002-11.002.pop.h.BSF.200211-200712.nc
+beginning dz/kmt/dxu step
+computing bsf
+created netcdf
+vvelfile: /glade/campaign/collections/cmip/CMIP6/iHESP/HR-DP/b.e13.BDP-HR.ne120_t12.2004-11.002/ocn/proc/tseries/month_1/b.e13.BDP-HR.ne120_t12.2004-11.002.pop.h.VVEL.200411-200912.nc
+creating b.e13.BDP-HR.ne120_t12.2004-11.002.pop.h.BSF.200411-200912.nc
+beginning dz/kmt/dxu step
+computing bsf
+created netcdf
+vvelfile: /glade/campaign/collections/cmip/CMIP6/iHESP/HR-DP/b.e13.BDP-HR.ne120_t12.2006-11.002/ocn/proc/tseries/month_1/b.e13.BDP-HR.ne120_t12.2006-11.002.pop.h.VVEL.200611-201112.nc
+creating b.e13.BDP-HR.ne120_t12.2006-11.002.pop.h.BSF.200611-201112.nc
+beginning dz/kmt/dxu step
+computing bsf
+created netcdf
+vvelfile: /glade/campaign/collections/cmip/CMIP6/iHESP/HR-DP/b.e13.BDP-HR.ne120_t12.2008-11.002/ocn/proc/tseries/month_1/b.e13.BDP-HR.ne120_t12.2008-11.002.pop.h.VVEL.200811-201312.nc
+creating b.e13.BDP-HR.ne120_t12.2008-11.002.pop.h.BSF.200811-201312.nc
+beginning dz/kmt/dxu step
+computing bsf
+created netcdf
+vvelfile: /glade/campaign/collections/cmip/CMIP6/iHESP/HR-DP/b.e13.BDP-HR.ne120_t12.2010-11.002/ocn/proc/tseries/month_1/b.e13.BDP-HR.ne120_t12.2010-11.002.pop.h.VVEL.201011-201512.nc
+creating b.e13.BDP-HR.ne120_t12.2010-11.002.pop.h.BSF.201011-201512.nc
+beginning dz/kmt/dxu step
+computing bsf
+created netcdf
+vvelfile: /glade/campaign/collections/cmip/CMIP6/iHESP/HR-DP/b.e13.BDP-HR.ne120_t12.2012-11.002/ocn/proc/tseries/month_1/b.e13.BDP-HR.ne120_t12.2012-11.002.pop.h.VVEL.201211-201712.nc
+creating b.e13.BDP-HR.ne120_t12.2012-11.002.pop.h.BSF.201211-201712.nc
+beginning dz/kmt/dxu step
+computing bsf
+created netcdf
+vvelfile: /glade/campaign/collections/cmip/CMIP6/iHESP/HR-DP/b.e13.BDP-HR.ne120_t12.2014-11.002/ocn/proc/tseries/month_1/b.e13.BDP-HR.ne120_t12.2014-11.002.pop.h.VVEL.201411-201912.nc
+creating b.e13.BDP-HR.ne120_t12.2014-11.002.pop.h.BSF.201411-201912.nc
+beginning dz/kmt/dxu step
+computing bsf
+created netcdf
+vvelfile: /glade/campaign/collections/cmip/CMIP6/iHESP/HR-DP/b.e13.BDP-HR.ne120_t12.2016-11.002/ocn/proc/tseries/month_1/b.e13.BDP-HR.ne120_t12.2016-11.002.pop.h.VVEL.201611-202112.nc
+creating b.e13.BDP-HR.ne120_t12.2016-11.002.pop.h.BSF.201611-202112.nc
+beginning dz/kmt/dxu step
+computing bsf
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -3260,7 +3392,8 @@ Wall time: 1h 32min 42s
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">POP Atlantic BSF for 0.1-degree</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-required-variables">Get the required variables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-bsf-for-rcp-products">Compute BSF for RCP Products</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-required-variables">Get the required variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#region-mask-grid-fields">Region Mask &amp; Grid Fields</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-bsf">Compute BSF</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-to-netcdf">Output to netcdf</a></li>
@@ -3272,6 +3405,7 @@ Wall time: 1h 32min 42s
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Output to netcdf</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-bsf-for-hr-dp-products">Compute BSF for HR-DP Products</a></li>
 </ul>
 
   </nav></div>
